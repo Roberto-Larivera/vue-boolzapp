@@ -49,8 +49,30 @@
 .my_app-contacts-footer .contacts_footer-search{
     width: 100%;
     height: 50px;
-    background-color: red;
+    padding: 5px;
+    background-color: var(--color-gray-header);
 }
+.contacts_footer-search .contacts_footer-search_input{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-gray-bg_contacts);
+}
+.contacts_footer-search_input .input_text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    height: 100%;
+}
+.contacts_footer-search_input input{
+    width: 80%;
+    height: 100%;
+    border: none;
+}
+
 .my_app-contacts-footer .contacts_footer-list{
     width: 100%;
     height: calc(100% - 50px);
