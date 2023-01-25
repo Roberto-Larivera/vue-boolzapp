@@ -1,0 +1,26 @@
+#my_bg_app{
+    background: rgb(0,153,136);
+    background: linear-gradient(180deg, rgba(0,153,136,1) 20%, rgba(220,219,209,1) 20%);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#my_app{
+    height: 90%;
+    width: 70%;
+    background-color: var(--color-gray-bg);
+    display: flex;
+}
+#my_app > .my_app-contacts{
+    height: 100%;
+    width: 40%;
+    background-color: red;
+}
+#my_app > .my_app-chats{
+    height: 100%;
+    width: 60%;
+    background-color: blue;
+}
