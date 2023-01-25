@@ -35,6 +35,30 @@
     height: var(--height-app-popup);
     width: 100%;
     background-color: var(--color-blue-notif);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+
+
+}
+.my_app-contacts-popup .pop_before{
+    padding: 20px 0;
+    margin-right: 10px;
+}
+.pop_before .pop_icon{
+    width: var( --height_width-card_image);
+    height: var( --height_width-card_image);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: var(--color-gray-bg_contacts);
+    color: var(--color-blue-notif);
+
+}
+.my_app-contacts-popup .pop_after a{
+    color: var(--color-gray_black-button_foot);
 }
 
 #my_app .my_app-contacts .my_app-contacts-footer.active__popup{
@@ -77,15 +101,18 @@
     width: 100%;
     height: calc(100% - 50px);
     overflow: scroll;
+    padding: 10px;
+
 }
 
 .contacts_footer-list .list_contacts-card{
     width: 100%;
-    height: var(--height-app-contact_card);
+    /* height: var(--height-app-contact_card); */
     display: flex;
     justify-content: space-between;
-    padding: 10px;
     border-bottom: 1px solid var(--color-gray-header);
+    padding: 20px 0;
+
 }
 
 .list_contacts-card .card_before{
