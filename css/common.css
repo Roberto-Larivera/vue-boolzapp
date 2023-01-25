@@ -14,17 +14,25 @@
     --color-light-due: rgb(220, 220, 220);
     --active-page-br:3px solid transparent; 
     */
+
+    /* COLOR  */
     --color-green-bg: #009988;
     --color-gray-bg: #DCDBD1;
     --color-gray-header: #EAEAEA;
     --color-gray-bg_input: #F4EEE9;
+    --color-gray-bg_contacts: #fff;
     --color-gray_black-button_head: #B1B1B1;
     --color-gray_black-button_foot: #697376;
     --color-blue-notif: #75DCFF;
     --color-message_sent: #CBFBB3;
-    --color-message_received: #FFFFFF;
+    --color-message_received: #FFF;
     --color-text_name: black;
     --color-text_message: lightgray;
 
+    /* UTILITIES SIZING  */
+    --height-app-header: 80px;
+    --height-app-popup: 100px;
+    --height-app-contact_card: 100px;
 
+    --height_width-card_image: 80px;
 }

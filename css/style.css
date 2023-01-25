@@ -14,6 +14,7 @@
     background-color: var(--color-gray-bg);
     display: flex;
 }
+
 #my_app > .my_app-contacts{
     height: 100%;
     width: 40%;
@@ -24,3 +25,79 @@
     width: 60%;
     background-color: blue;
 }
+
+#my_app .my_app-contacts .my_app-contacts-header{
+    height: var(--height-app-header);
+    width: 100%;
+    background-color: var(--color-gray-header);
+}
+#my_app .my_app-contacts .my_app-contacts-popup{
+    height: var(--height-app-popup);
+    width: 100%;
+    background-color: var(--color-blue-notif);
+}
+
+#my_app .my_app-contacts .my_app-contacts-footer.active__popup{
+    height: calc(100% - (var(--height-app-header) + var(--height-app-popup))) !important;
+}
+#my_app .my_app-contacts .my_app-contacts-footer{
+    height: calc(100% - (var(--height-app-header)));
+    width: 100%;
+    background-color: var(--color-gray-bg_contacts);
+}
+
+.my_app-contacts-footer .contacts_footer-search{
+    width: 100%;
+    height: 50px;
+    background-color: red;
+}
+.my_app-contacts-footer .contacts_footer-list{
+    width: 100%;
+    height: calc(100% - 50px);
+    overflow: scroll;
+}
+
+.contacts_footer-list .list_contacts-card{
+    width: 100%;
+    height: var(--height-app-contact_card);
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid var(--color-gray-header);
+}
+
+.list_contacts-card .card_before{
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card_before .card_image{
+    width: var( --height_width-card_image);
+    height: var( --height_width-card_image);
+    border-radius: 50%;
+
+}
+.card_before .card_image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+
+}
+
+.list_contacts-card .card_center{
+    width: calc(100% - 150px);
+
+    
+}
+.list_contacts-card .card_center h3{
+    color: var(--color-text_name);
+    margin-bottom: 5px;
+}
+
+.list_contacts-card .card_after{
+    width: 50px;
+   
+}
+
