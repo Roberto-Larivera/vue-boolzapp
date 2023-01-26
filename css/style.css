@@ -30,7 +30,43 @@
     height: var(--height-app-header);
     width: 100%;
     background-color: var(--color-gray-header);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+.my_app-contacts-header .contacts_header-left{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.contacts_header-left .profile_image{
+    width: var( --height_width-profile_image);
+    height: var( --height_width-profile_image);
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.contacts_header-left .profile_image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.my_app-contacts-header .contacts_header-left h3{
+    color: var(--color-text_name);
+}
+.my_app-contacts-header .contacts_header-right{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.my_app-contacts-header .contacts_header-right i{
+    padding: 10px;
+    font-size: 1.1rem;
+    color: var(--color-gray_black-button_head);
+    cursor: pointer;
+}
+
 #my_app .my_app-contacts .my_app-contacts-popup{
     height: var(--height-app-popup);
     width: 100%;
@@ -42,11 +78,11 @@
 
 
 }
-.my_app-contacts-popup .pop_before{
+.my_app-contacts-popup .pop_left{
     padding: 20px 0;
     margin-right: 10px;
 }
-.pop_before .pop_icon{
+.pop_left .pop_icon{
     width: var( --height_width-card_image);
     height: var( --height_width-card_image);
     display: flex;
@@ -57,7 +93,7 @@
     color: var(--color-blue-notif);
 
 }
-.my_app-contacts-popup .pop_after a{
+.my_app-contacts-popup .pop_right a{
     color: var(--color-gray_black-button_foot);
 }
 
@@ -115,19 +151,19 @@
 
 }
 
-.list_contacts-card .card_before{
+.list_contacts-card .card_left{
     width: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.card_before .card_image{
+.card_left .card_image{
     width: var( --height_width-card_image);
     height: var( --height_width-card_image);
     border-radius: 50%;
 
 }
-.card_before .card_image img{
+.card_left .card_image img{
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -137,16 +173,18 @@
 
 .list_contacts-card .card_center{
     width: calc(100% - 150px);
-
-    
+}
+.list_contacts-card .card_center span,
+.list_contacts-card .card_right span{
+    font-size: .9rem;
+    font-weight: 300 ;
 }
 .list_contacts-card .card_center h3{
     color: var(--color-text_name);
     margin-bottom: 5px;
 }
 
-.list_contacts-card .card_after{
+.list_contacts-card .card_right{
     width: 50px;
-   
 }
 
