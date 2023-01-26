@@ -115,7 +115,9 @@ createApp({
             }, 1000);
         },
         searchVontactFn (){
-            this.searchContactArray = this.contacts.filter(this.searchContact.name.includes(this.searchContact))
+            // if()
+            this.searchContactArray = this.contacts.filter(element => elemnt.includes(this.searchContact))
+            console.log('this.searchContactArray',this.searchContactArray)
 
         }
         // sendAutoReceived (){
@@ -128,17 +130,18 @@ createApp({
         // }
     },
     mounted() {
-        
+        searchVontactFn ()
     },
 
 }).mount('#app');
 
 const pippoPeppa = ['giancarlo','pietro','marco','matteo','martina'];
-const miaRicerca = 'marco';
+const miaRicerca = '';
 controlloOllo ()
+
 function controlloOllo (){
-    nuovaArray = pippoPeppa.filter((element) => {
-        element.includes(miaRicerca)
-    })
+    const nuovaArray = pippoPeppa.filter(element => element.includes(miaRicerca))
     console.log('nuovaArray',nuovaArray)
 }
+
+
