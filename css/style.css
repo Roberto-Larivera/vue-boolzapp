@@ -243,7 +243,37 @@
     height: calc(100% - (var(--height-app-header) * 2) );
     width: 100%;
     background-image: url(../img/mine.jpg);
+    padding: 20px;
+    overflow: scroll;
 }
+
+.my_app-chats-body .chats_body-row{
+    margin-bottom: 10px;
+}
+
+.chats_body-row .box_message{
+    display: inline-block;
+    min-width: 30%;
+    max-width: 60%;
+    min-height: 20px;
+    background-color: var(--color-message_received);
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.my_app-chats-body .box_message .box_message-text{
+    padding-bottom: 10px;
+}
+.my_app-chats-body .box_message .box_message-time{
+    font-size: .5rem;
+    color: var(--color-text_message);
+    font-weight: 700;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
+
 #my_app .my_app-chats .my_app-chats-footer{
     height: var(--height-app-header);
     width: 100%;
