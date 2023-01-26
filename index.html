@@ -69,27 +69,29 @@
                        </div> 
 
                        <ul class="contacts_footer-list">
-                        <li class="list_contacts-card"  v-for="(item, index) in contacts"  :class="(contactActive == index) ? 'list_contact-active' : '' " @click="contactActive = index"> <!--v-if="contacts[index].visible"--> {{item.visible}}
-                            <div class="card_left">
-                                <div class="card_image">
-                                    <img :src="'img/avatar'+item.avatar+'.jpg'" :alt="item.name">
+                        <template v-for="(item, index) in contacts">
+                            <li class="list_contacts-card"  v-if="item.visible" :class="(contactActive == index) ? 'list_contact-active' : '' " @click="contactActive = index">
+                               <div class="card_left">
+                                    <div class="card_image">
+                                        <img :src="'img/avatar'+item.avatar+'.jpg'" :alt="item.name">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="card_center">
-                                <h3>
-                                    {{item.name}}
-                                </h3>
-                                <span>
-                                    Ultimo messaggio inviato
-                                </span>
-                            </div>
-                            <div class="card_right">
-                                <span>
-                                    12:00
-                                </span>
-                            </div>
-                                
-                        </li>
+                                <div class="card_center">
+                                    <h3>
+                                        {{item.name}}
+                                    </h3>
+                                    <span>
+                                        Ultimo messaggio inviato
+                                    </span>
+                                </div>
+                                <div class="card_right">
+                                    <span>
+                                        12:00
+                                    </span>
+                                </div>
+                                    
+                            </li>
+                        </template>
                        </ul>
                     </div>
                 </div>
