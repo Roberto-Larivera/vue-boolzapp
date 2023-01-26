@@ -6,7 +6,6 @@ createApp({
             contactActive : 0,
             newMessage : '',
             searchContact: '',
-            searchContactArray: [''],
 
             contacts : [
                 {
@@ -114,12 +113,14 @@ createApp({
                 })
             }, 1000);
         },
-        searchVontactFn (){
-            if(this.searchContact != ''){
-                this.searchContactArray = this.contacts.filter(element => elemnt.includes(this.searchContact))
-                console.log('this.searchContactArray',this.searchContactArray)
-            }
-
+        searchFilter (){
+            this.contacts.forEach((element,i,arr) => {
+                this.contacts[i].visible = false;
+                if(this.contacts[i].name.toLowerCase().includes(this.searchContact.toLowerCase())){
+                    this.contacts[i].visible = true;
+                }
+            });
+            console.log(this.contacts);
         }
         // sendAutoReceived (){
         //     this.contacts[this.contactActive].messages.push({
@@ -131,18 +132,6 @@ createApp({
         // }
     },
     mounted() {
-        this.searchVontactFn ()
     },
 
 }).mount('#app');
-
-const pippoPeppa = ['giancarlo','pietro','marco','matteo','martina'];
-const miaRicerca = '';
-controlloOllo ()
-
-function controlloOllo (){
-    const nuovaArray = pippoPeppa.filter(element => element.includes(miaRicerca))
-    console.log('nuovaArray',nuovaArray)
-}
-
-
