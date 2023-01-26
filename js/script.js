@@ -6,7 +6,7 @@ createApp({
             contactActive : 0,
             newMessage : '',
             searchContact: '',
-
+            provaVa: true,
             contacts : [
                 {
                     name: 'Michele',
@@ -106,30 +106,26 @@ createApp({
             })
             this.newMessage = '';
             setTimeout(() => {
-                this.contacts[this.contactActive].messages.push({
-                    date: '10/01/2020 15:30:55',
-                    message: 'Ciao, tutto ok!',
-                    status: 'received' 
-                })
+                this.sendAutoReceived ()
             }, 1000);
+        },
+        sendAutoReceived (){
+            this.contacts[this.contactActive].messages.push({
+                date: '10/01/2020 15:30:55',
+                message: `Ciao Sofia , tutto ok!`,
+                status: 'received' 
+            })
         },
         searchFilter (){
             this.contacts.forEach((element,i,arr) => {
+                
                 this.contacts[i].visible = false;
                 if(this.contacts[i].name.toLowerCase().includes(this.searchContact.toLowerCase())){
                     this.contacts[i].visible = true;
                 }
             });
             console.log(this.contacts);
-        }
-        // sendAutoReceived (){
-        //     this.contacts[this.contactActive].messages.push({
-        //         date: '10/01/2020 15:30:55',
-        //         message: `Ciao ${this.contacts[this.contactActive].name} , tutto ok!`,
-        //         status: 'received' 
-        //     })
-        //     alert('ciao')
-        // }
+        },
     },
     mounted() {
     },

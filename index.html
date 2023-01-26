@@ -69,7 +69,7 @@
                        </div> 
 
                        <ul class="contacts_footer-list">
-                        <li class="list_contacts-card" v-for="(item, index) in contacts" :class="(contactActive == index) ? 'list_contact-active' : '' " @click="contactActive = index">
+                        <li class="list_contacts-card"  v-for="(item, index) in contacts"  :class="(contactActive == index) ? 'list_contact-active' : '' " @click="contactActive = index"> <!--v-if="contacts[index].visible"--> {{item.visible}}
                             <div class="card_left">
                                 <div class="card_image">
                                     <img :src="'img/avatar'+item.avatar+'.jpg'" :alt="item.name">
