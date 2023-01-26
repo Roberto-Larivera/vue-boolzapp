@@ -107,7 +107,6 @@ createApp({
                 this.contacts[this.contactActive].messages.push({
                     date: '10/01/2020 15:30:55',
                     message: 'Ciao, tutto ok!',
-                    // message: `Ciao ${this.contacts[this.contactActive].name} , tutto ok!`,
                     status: 'received' 
                 })
             }, 1000);
