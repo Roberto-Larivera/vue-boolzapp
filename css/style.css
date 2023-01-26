@@ -249,6 +249,15 @@
 
 .my_app-chats-body .chats_body-row{
     margin-bottom: 10px;
+    width: 100%;
+    display: flex;
+}
+.my_app-chats-body .chats_body-row.sent{
+    justify-content: flex-end;
+
+}
+.my_app-chats-body .chats_body-row.received{
+    justify-content: flex-start;
 }
 
 .chats_body-row .box_message{
@@ -256,10 +265,18 @@
     min-width: 30%;
     max-width: 60%;
     min-height: 20px;
-    background-color: var(--color-message_received);
     padding: 10px;
     border-radius: 10px;
     position: relative;
+}
+
+
+.chats_body-row.sent .box_message{
+    background-color: var(--color-message_sent);
+    
+}
+.chats_body-row.received .box_message{
+    background-color: var(--color-message_received);
 }
 
 .my_app-chats-body .box_message .box_message-text{
