@@ -115,9 +115,10 @@ createApp({
             }, 1000);
         },
         searchVontactFn (){
-            // if()
-            this.searchContactArray = this.contacts.filter(element => elemnt.includes(this.searchContact))
-            console.log('this.searchContactArray',this.searchContactArray)
+            if(this.searchContact != ''){
+                this.searchContactArray = this.contacts.filter(element => elemnt.includes(this.searchContact))
+                console.log('this.searchContactArray',this.searchContactArray)
+            }
 
         }
         // sendAutoReceived (){
@@ -130,7 +131,7 @@ createApp({
         // }
     },
     mounted() {
-        searchVontactFn ()
+        this.searchVontactFn ()
     },
 
 }).mount('#app');
