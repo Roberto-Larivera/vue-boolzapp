@@ -131,7 +131,7 @@
                         </div>
 
                     </div> 
-
+                    {{newMessage}}
                     <div class="my_app-chats-footer">
                         <div class="footer_input-left">
                             <span>
@@ -139,7 +139,7 @@
                             </span>
                         </div>
                         <div class="footer_input-center">
-                            <input type="text" placeholder="Scrivi un messaggio">
+                            <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="sendNewMessage ()">
                         </div>
                         <div class="footer_input-right">
                             <span>

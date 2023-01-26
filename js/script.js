@@ -4,6 +4,7 @@ createApp({
     data(){
         return{
             contactActive : 0,
+            newMessage : '',
             contacts : [
                 {
                     name: 'Michele',
@@ -26,6 +27,12 @@ createApp({
                             status: 'received'
                         }
                     ],
+                    
+                    // newMessage : {
+                    //     data: '10/01/2020 16:15:22',
+                    //     message: '',
+                    //     status: 'sent'
+                    // }
                 },
                 {
                     name: 'Fabio',
@@ -89,7 +96,13 @@ createApp({
         }
     },
     methods: {
-        
+        sendNewMessage () {
+            this.contacts[this.contactActive].messages.push({
+                date: '10/01/2020 15:30:55',
+                message: this.newMessage,
+                status: 'sent' 
+            })
+        }
     },
     mounted() {
         
