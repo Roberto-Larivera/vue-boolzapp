@@ -69,7 +69,7 @@
                        </div> 
 
                        <ul class="contacts_footer-list">
-                        <li class="list_contacts-card" v-for="(item, index) in contacts" >
+                        <li class="list_contacts-card" v-for="(item, index) in contacts" :class="(contactActive == index) ? 'list_contact-active' : '' " @click="contactActive = index">
                             <div class="card_left">
                                 <div class="card_image">
                                     <img :src="'img/avatar'+item.avatar+'.jpg'" :alt="item.name">
@@ -99,14 +99,14 @@
                     <div class="my_app-chats-header">
                          <div class="chats_header-left"  >   <!--v-for="(item,index) in contacts" -->
                             <div class="profile_sent_image">
-                                <img src="img/avatar_1.jpg" alt="">
+                                <img :src="'img/avatar'+contacts[contactActive].avatar+'.jpg'" :alt="contacts[contactActive].name">
                             </div>
                             <div class="profile_sent_name">
                                 <h3>
-                                    Sofia
+                                    {{contacts[contactActive].name}}
                                 </h3>
                                 <span>
-                                    Ultimo messaggio inviato
+                                    Ultimo accesso oggi alle 12:00
                                 </span>
                             </div>
                         </div>
@@ -119,10 +119,10 @@
 
                     <div class="my_app-chats-body">
 
-                        <div class="chats_body-row sent">
+                        <div class="chats_body-row" v-for="(item, index) in contacts[contactActive].messages" :class="(item.status == 'sent') ? 'sent' : 'received'">
                             <div class="box_message">
                                 <p class="box_message-text">
-                                    Tutto Fatto!
+                                    {{item.message}}
                                 </p>
                                 <span class="box_message-time">
                                     10:15
