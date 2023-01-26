@@ -5,6 +5,9 @@ createApp({
         return{
             contactActive : 0,
             newMessage : '',
+            searchContact: '',
+            searchContactArray: [''],
+
             contacts : [
                 {
                     name: 'Michele',
@@ -111,6 +114,10 @@ createApp({
                 })
             }, 1000);
         },
+        searchVontactFn (){
+            this.searchContactArray = this.contacts.filter(this.searchContact.name.includes(this.searchContact))
+
+        }
         // sendAutoReceived (){
         //     this.contacts[this.contactActive].messages.push({
         //         date: '10/01/2020 15:30:55',
@@ -125,3 +132,13 @@ createApp({
     },
 
 }).mount('#app');
+
+const pippoPeppa = ['giancarlo','pietro','marco','matteo','martina'];
+const miaRicerca = 'marco';
+controlloOllo ()
+function controlloOllo (){
+    nuovaArray = pippoPeppa.filter((element) => {
+        element.includes(miaRicerca)
+    })
+    console.log('nuovaArray',nuovaArray)
+}
