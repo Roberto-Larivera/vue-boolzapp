@@ -132,7 +132,7 @@
 .my_app-contacts-footer .contacts_footer-list{
     width: 100%;
     height: calc(100% - 50px);
-    overflow: scroll;
+    overflow-y: auto;
     padding: 10px;
 
 }
@@ -244,7 +244,7 @@
     width: 100%;
     background-image: url(../img/mine.jpg);
     padding: 20px;
-    overflow: scroll;
+    overflow-y: auto;
 }
 
 .my_app-chats-body .chats_body-row{

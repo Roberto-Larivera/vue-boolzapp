@@ -27,7 +27,7 @@
                     <div class="my_app-contacts-header">
                         <div class="contacts_header-left">
                             <div class="profile_image">
-                                <img src="img/avatar_1.jpg" alt="">
+                                <img src="img/avatar_io.jpg" alt="">
                             </div>
                             <h3>
                                 Sofia
@@ -69,15 +69,15 @@
                        </div> 
 
                        <ul class="contacts_footer-list">
-                        <li class="list_contacts-card">
+                        <li class="list_contacts-card" v-for="(item, index) in contacts" >
                             <div class="card_left">
                                 <div class="card_image">
-                                    <img src="img/avatar_1.jpg" alt="">
+                                    <img :src="'img/avatar'+item.avatar+'.jpg'" :alt="item.name">
                                 </div>
                             </div>
                             <div class="card_center">
                                 <h3>
-                                    Michele
+                                    {{item.name}}
                                 </h3>
                                 <span>
                                     Ultimo messaggio inviato
@@ -95,9 +95,9 @@
                 </div>
 
                 <!-- APP CHATS -->
-                <div class="my_app-chats">
+                <div class="my_app-chats" >
                     <div class="my_app-chats-header">
-                        <div class="chats_header-left">
+                         <div class="chats_header-left"  >   <!--v-for="(item,index) in contacts" -->
                             <div class="profile_sent_image">
                                 <img src="img/avatar_1.jpg" alt="">
                             </div>
@@ -123,16 +123,6 @@
                             <div class="box_message">
                                 <p class="box_message-text">
                                     Tutto Fatto!
-                                </p>
-                                <span class="box_message-time">
-                                    10:15
-                                </span>
-                            </div>
-                        </div>
-                        <div class="chats_body-row received">
-                            <div class="box_message">
-                                <p class="box_message-text">
-                                    ih!hhhhyjkygkyuk
                                 </p>
                                 <span class="box_message-time">
                                     10:15
