@@ -188,7 +188,7 @@ createApp({
 
             }
         },
-        sendAutoReceived (){
+        sendAutoReceived (){    
             const newDate = this.newDateMessage()
             this.contacts[this.contactActive].messages.push({
                 date: newDate,
@@ -218,7 +218,8 @@ createApp({
             const dt = luxon.DateTime;
             console.log(index, typeof index)
 
-            const newTime = dt.fromISO(index).toLocaleString(dt.TIME_24_SIMPLE);
+            const newTime = dt.fromFormat(index,'dd/LL/yyyy HH:mm:ss').toLocaleString(dt.TIME_24_SIMPLE);
+            //const newTime = dt.fromFormat(index).toFormat('dd/LL/yyyy ');
             console.log(newTime, typeof newTime)
             return newTime
                 // const dtMess = dt.now().toLocaleString(dt.TIME_24_SIMPLE);
