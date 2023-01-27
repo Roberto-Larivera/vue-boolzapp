@@ -168,7 +168,8 @@ createApp({
                         }
                 ],
                 }
-]
+            ],
+            
 
         }
     },
@@ -208,7 +209,7 @@ createApp({
         newDateMessage(){
             const dt = luxon.DateTime;
                 const newDate = dt.fromISO(dt.now()).toFormat('dd/LL/yyyy HH:mm:ss');
-                console.log(newDate, typeof newDate)
+                //console.log(newDate, typeof newDate)
                 return newDate
                 // const dtMess = dt.now().toLocaleString(dt.TIME_24_SIMPLE);
                 // console.log(dtMess, typeof dtMess)
@@ -216,16 +217,40 @@ createApp({
         },
         newDateMessageSimple(index){
             const dt = luxon.DateTime;
-            console.log(index, typeof index)
+            //console.log(index, typeof index)
 
             const newTime = dt.fromFormat(index,'dd/LL/yyyy HH:mm:ss').toLocaleString(dt.TIME_24_SIMPLE);
             //const newTime = dt.fromFormat(index).toFormat('dd/LL/yyyy ');
-            console.log(newTime, typeof newTime)
+            //console.log(newTime, typeof newTime)
             return newTime
                 // const dtMess = dt.now().toLocaleString(dt.TIME_24_SIMPLE);
                 // console.log(dtMess, typeof dtMess)
                 // console.log(dt.now().toLocaleString(dt.TIME_24_SIMPLE))
         },
+        lastMessageTime(index){
+            // Prova
+            // let abc; 
+            // do {
+            //     abc = this.contacts[index].messages[this.contacts[index].messages.length - i].date
+            //         i = 1
+            //         i ++
+            //     } while ((this.contacts[index].messages[this.contacts[index].messages.length - i].status) == 'sent')
+            //     console.log('abc',abc,typeof abc);
+                
+            const excTime = this.contacts[index].messages[this.contacts[index].messages.length - 1].date;
+            console.log('excTime',this.contacts[index].messages[this.contacts[index].messages.length - 1].date);
+            console.log('excTime',excTime,typeof excTime);
+            const txtTime = this.newDateMessageSimple(excTime)
+            return txtTime
+
+            // let ultimateMessage;
+            // this.contacts[index].messages.reverse().forEach(msg => {
+            //     if(msg.status == 'received'){
+            //         ultimateMessage = msg.date
+            //     }
+            // })
+            // console.log('iaiai',ultimateMessage)
+        }
     },
     mounted() {
     },
