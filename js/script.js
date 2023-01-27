@@ -236,12 +236,45 @@ createApp({
             //         i ++
             //     } while ((this.contacts[index].messages[this.contacts[index].messages.length - i].status) == 'sent')
             //     console.log('abc',abc,typeof abc);
+            //let lastTime = '00:00';
+
+
+            // console.log('excTime',excTime)
+            // console.log('this.contacts[index].messages.reverse()',this.contacts[index].messages)
+            
+            let txtTime;
+            for (let i = this.contacts[index].messages.length - 1; i >= 0; i--) {
+                const element = this.contacts[index].messages[i];
+                console.log(element.status);
+                if(element.status == 'received'){
+                    console.log(element.status, 'sono entrato');
+                    const excTime = this.contacts[index].messages[i].date;
+                    txtTime = this.newDateMessageSimple(excTime)
+                    return txtTime
+                }
                 
-            const excTime = this.contacts[index].messages[this.contacts[index].messages.length - 1].date;
-            console.log('excTime',this.contacts[index].messages[this.contacts[index].messages.length - 1].date);
-            console.log('excTime',excTime,typeof excTime);
-            const txtTime = this.newDateMessageSimple(excTime)
-            return txtTime
+            }
+            return 'non registrato'
+            // this.contacts[index].messages.reverse().forEach((element) =>{
+            //     if(element.status == 'received'){
+            //      txtTime = this.newDateMessageSimple(excTime)
+            //         return txtTime
+            //     }
+
+                
+            // })
+            // return 'non registrato'
+
+
+
+            // console.log('excTime',this.contacts[index].messages[this.contacts[index].messages.length - 1].date);
+            // console.log('excTime',excTime,typeof excTime);
+            // //let txtTime;
+            // if(this.contacts[index].messages[this.contacts[index].messages.length - 1].status == 'received'){
+            //      txtTime = this.newDateMessageSimple(excTime)
+
+            // }
+            // return txtTime
 
             // let ultimateMessage;
             // this.contacts[index].messages.reverse().forEach(msg => {
