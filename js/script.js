@@ -199,19 +199,7 @@ createApp({
                     this.contacts[i].visible = true;
                 }
             });
-            //console.log(this.contacts);
         },
-        // controlTrue(i){
-        //     console.log(this.contacts[i].visible);
-        //     if(this.contacts[i].visible == true){
-        //         console.log('sei bello')
-        //         return true
-        //     }
-        //     else{
-        //         console.log('sei brutto')
-        //         return false
-        //     }
-        // }
     },
     mounted() {
     },

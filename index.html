@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/style.css">
 
+    <!-- <script src="https://cdn.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js"></script> -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
 </head>
@@ -24,6 +25,7 @@
 
                 <!-- APP CONTACTS -->
                 <div class="my_app-contacts">
+                    <!-- CONTACTS HEADER -->
                     <div class="my_app-contacts-header">
                         <div class="contacts_header-left">
                             <div class="profile_image">
@@ -40,6 +42,7 @@
                         </div>
                     </div>
 
+                    <!-- CONTACTS POP-UP -->
                     <div class="my_app-contacts-popup">
                         
                         <div class="pop_left">
@@ -58,8 +61,10 @@
                         </div>
                     </div>
 
+                    <!-- CONTACTS FOOTER -->
                     <div class="my_app-contacts-footer active__popup">
 
+                        <!-- FOOTER SEARCH-->
                        <div class="contacts_footer-search">
                             <div class="contacts_footer-search_input">
                                 <div class="input_text"><i class="fa-solid fa-magnifying-glass"></i></div>
@@ -68,6 +73,7 @@
                             </div>
                        </div> 
 
+                       <!-- FOOTER LIST-CONTACTS-->
                        <ul class="contacts_footer-list">
                         <template v-for="(item, index) in contacts">
                             <li class="list_contacts-card"  v-if="item.visible" :class="(contactActive == index) ? 'list_contact-active' : '' " @click="contactActive = index">
@@ -98,6 +104,8 @@
 
                 <!-- APP CHATS -->
                 <div class="my_app-chats" >
+
+                    <!-- CHATS HEADER-->
                     <div class="my_app-chats-header">
                          <div class="chats_header-left"  >   <!--v-for="(item,index) in contacts" -->
                             <div class="profile_sent_image">
@@ -119,20 +127,22 @@
                         </div>
                     </div> 
 
+                    <!-- CHATS BODY-->
                     <div class="my_app-chats-body">
-                        <div class="chats_body-row" v-for="(item, index) in contacts[contactActive].messages" :class="(item.status == 'sent') ? 'sent' : 'received'">
+                        <div class="chats_body-row" v-for="(item, index) in contacts[contactActive].messages" :class="(item.status == 'sent') ? 'sent' : 'received'"> <!--:class="item.status"-->
                             <div class="box_message">
                                 <p class="box_message-text">
                                     {{item.message}}
                                 </p>
                                 <span class="box_message-time">
-                                    10:15
+                                    {{item.date}}
                                 </span>
                             </div>
                         </div>
 
                     </div>
                     
+                    <!-- CHATS FOOTER-->
                     <div class="my_app-chats-footer">
                         <div class="footer_input-left">
                             <span>
