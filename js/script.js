@@ -174,19 +174,24 @@ createApp({
     },
     methods: {
         sendNewMessage () {
-            this.contacts[this.contactActive].messages.push({
-                date: '10/01/2020 15:30:55',
-                message: this.newMessage,
-                status: 'sent' 
-            })
-            this.newMessage = '';
-            setTimeout(() => {
-                this.sendAutoReceived ()
-            }, 1000);
+            if(this.newMessage != ''){
+                const newDate = this.newDateMessage()
+                this.contacts[this.contactActive].messages.push({
+                    date: newDate,
+                    message: this.newMessage,
+                    status: 'sent' 
+                })
+                this.newMessage = '';
+                setTimeout(() => {
+                    this.sendAutoReceived ()
+                }, 1000);
+
+            }
         },
         sendAutoReceived (){
+            const newDate = this.newDateMessage()
             this.contacts[this.contactActive].messages.push({
-                date: '10/01/2020 15:30:55',
+                date: newDate,
                 message: `Ciao Sofia , tutto ok!`,
                 status: 'received' 
             })
@@ -199,6 +204,26 @@ createApp({
                     this.contacts[i].visible = true;
                 }
             });
+        },
+        newDateMessage(){
+            const dt = luxon.DateTime;
+                const newDate = dt.fromISO(dt.now()).toFormat('dd/LL/yyyy HH:mm:ss');
+                console.log(newDate, typeof newDate)
+                return newDate
+                // const dtMess = dt.now().toLocaleString(dt.TIME_24_SIMPLE);
+                // console.log(dtMess, typeof dtMess)
+                // console.log(dt.now().toLocaleString(dt.TIME_24_SIMPLE))
+        },
+        newDateMessageSimple(index){
+            const dt = luxon.DateTime;
+            console.log(index, typeof index)
+
+            const newTime = dt.fromISO(index).toLocaleString(dt.TIME_24_SIMPLE);
+            console.log(newTime, typeof newTime)
+            return newTime
+                // const dtMess = dt.now().toLocaleString(dt.TIME_24_SIMPLE);
+                // console.log(dtMess, typeof dtMess)
+                // console.log(dt.now().toLocaleString(dt.TIME_24_SIMPLE))
         },
     },
     mounted() {

@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- <script src="https://cdn.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js"></script> -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
 </head>
@@ -69,7 +68,9 @@
                             <div class="contacts_footer-search_input">
                                 <div class="input_text"><i class="fa-solid fa-magnifying-glass"></i></div>
                                 <!-- <div class="input_text"><i class="fa-solid fa-xmark"></i></i></div> -->            <!--translate x con testo-->
-                                <input type="search" placeholder="Cerca o inizia una nuova chat" v-model="searchContact" @keyup="searchFilter()">
+                                <div class="input_search">
+                                    <input type="search" placeholder="Cerca o inizia una nuova chat" v-model="searchContact" @keyup="searchFilter()">
+                                </div>
                             </div>
                        </div> 
 
@@ -135,7 +136,7 @@
                                     {{item.message}}
                                 </p>
                                 <span class="box_message-time">
-                                    {{item.date}}
+                                    {{newDateMessageSimple(item.date)}}
                                 </span>
                             </div>
                         </div>
@@ -154,8 +155,8 @@
                         </div>
                         <div class="footer_input-right">
                             <span>
-                                <i class="fa-solid fa-microphone"></i>
-                                <!-- <i class="fa-solid fa-paper-plane"></i> -->    <!--translate x con testo-->
+                                <i class="fa-solid fa-microphone" v-if="(newMessage == '')"></i>
+                                <i class="fa-solid fa-paper-plane" @click="sendNewMessage ()" v-else></i>    <!--translate x con testo-->
                             </span>
                         </div>
                     </div> 
@@ -163,6 +164,7 @@
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>
