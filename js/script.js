@@ -302,7 +302,6 @@ createApp({
             return 'Vuoto'
         },
         menuMesssage(){
-
             for(let i = 0 ; this.contacts[i].messages.lenght ; i++){
                 this.contacts[i].messages[i].statusMenu = false;
             }
@@ -310,10 +309,12 @@ createApp({
         menuMesssageOpen(item, x){
             console.log('this.currentMessage',this.currentMessage)
             console.log('x', x)
-            item[this.currentMessage] = false;
-            this.currentMessage = x ;
+            console.log('item', item)
             console.log('this.currentMessage',this.currentMessage)
             item.statusMenu = !item.statusMenu
+            this.contacts[this.contactActive].messages[this.currentMessage].statusMenu = false;
+            this.currentMessage = false;
+            this.currentMessage = x ;
             
         },
         deleteMessage(x,index){

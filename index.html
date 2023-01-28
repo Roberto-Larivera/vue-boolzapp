@@ -135,12 +135,11 @@
                             <div class="box_message" @click.prevent.right="menuMesssageOpen(item, index)" >
                                     <p class="box_message-text">
                                         {{item.message}}
-                                        {{index}}
                                     </p>
                                     <span class="box_message-time">
                                         {{newDateMessageSimple(item.date)}}
                                     </span>
-                                    <i class="fa-solid fa-angle-down" @click="menuMesssageOpen(item,open)"></i>
+                                    <i class="fa-solid fa-angle-down" @click="menuMesssageOpen(item, index)"></i>
                                     <div class="menu_message" v-if="item.statusMenu == true">
                                         <div class="message_info">Message info</div>
                                         <div @click="deleteMessage(contactActive,index)" >Delete message</div>
