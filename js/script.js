@@ -187,20 +187,48 @@ createApp({
     methods: {
         sendNewMessage () {
             if(this.newMessage != ''){
-                const newDate = this.newDateMessage()
-                this.contacts[this.contactActive].messages.push({
-                    date: newDate,
-                    message: this.newMessage,
-                    status: this.user.message.status,
-                    // statusMenu: this.user.message.statusMenu,
-                })
-                this.newMessage = '';
-                setTimeout(() => {
-                    this.sendAutoReceived ()
-                }, 1000);
+                if(this.newMessage.includes('.received:')){
+                    const newDate = this.newDateMessage()
+                    this.contacts[this.contactActive].messages.push({
+                        date: newDate,
+                        message: this.newMessage.replace(new RegExp(".received:"), ""),
+                        status: 'received',
+                        // statusMenu: this.user.message.statusMenu,
+                    })
+                    this.newMessage = '';
+                }else{
+                    const newDate = this.newDateMessage()
+                    this.contacts[this.contactActive].messages.push({
+                        date: newDate,
+                        message: this.newMessage,
+                        status: this.user.message.status,
+                        // statusMenu: this.user.message.statusMenu,
+                    })
+                    this.newMessage = '';
+                    setTimeout(() => {
+                        this.sendAutoReceived ()
+                    }, 1000);
+                    
+                }
 
             }
         },
+        // sendNewMessage () {
+        //     if(this.newMessage != ''){
+        //         const newDate = this.newDateMessage()
+        //         this.contacts[this.contactActive].messages.push({
+        //             date: newDate,
+        //             message: this.newMessage,
+        //             status: this.user.message.status,
+        //             // statusMenu: this.user.message.statusMenu,
+        //         })
+        //         this.newMessage = '';
+        //         setTimeout(() => {
+        //             this.sendAutoReceived ()
+        //         }, 1000);
+
+        //     }
+        // },
         sendAutoReceived (){    
             const newDate = this.newDateMessage()
             this.contacts[this.contactActive].messages.push({

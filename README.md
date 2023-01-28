@@ -1,5 +1,14 @@
 # vue-boolzapp
 
+## Nuove funzionalità
+- scrivendo nel input della chat:  ".received: ", prima di un messaggio potrai far risultare il messaggio come ricevuto e non inviato da te. (Questo non comporterà all'invio automatico del messaggio del destinatario);
+- Aggiunta di menu della chat nella lista contatti con la possibilità di eliminare la chat intera;
+- Cliccando sulla scritta "Attiva notifiche desktop" che si trova nel pop-up delle notifiche, farà rimuovere il pop-up e far rimodellare la lista;
+- Finchè input della chat resterà vuoto si vedrà il bottone del microfono, e quando inizierai a scrivere comparirà il bottone dell'invio , (resterà sempre la possibilità di inviare il messaggio tramite il tasto Invio, con l'aggiunta del button);
+- Aggiunta funzione per far si che rimanga un solo menuMessage / menuChatList aperto contemporaneamente;
+
+
+
 Milestone 1
 ● Replica della grafica con la possibilità di avere messaggi scritti dall’utente (verdi) e dall’interlocutore (bianco) assegnando due classi CSS diverse
 ● Visualizzazione dinamica della lista contatti: tramite la direttiva v-for, visualizzare nome e immagine di ogni contatto
