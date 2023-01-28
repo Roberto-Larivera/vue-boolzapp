@@ -355,7 +355,8 @@ createApp({
             
         },
         deleteMessage(x,index){
-            this.contacts[x].messages.splice(index,1)
+            this.contacts[x].messages.splice(index,1);
+            this.currentMessage = 0;
         },
         menuMesssageOpenList(item, x){
             console.log('this.currentContact',this.currentContact)
