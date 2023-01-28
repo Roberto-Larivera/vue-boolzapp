@@ -260,15 +260,14 @@
     margin-bottom: 10px;
     width: 100%;
     display: flex;
+    text-align: start;
+
 }
 .my_app-chats-body .chats_body-row.sent{
     justify-content: flex-end;
-    text-align: end;
-
 }
 .my_app-chats-body .chats_body-row.received{
     justify-content: flex-start;
-    text-align: start;
 }
 
 .chats_body-row .box_message{
@@ -299,6 +298,66 @@
     position: absolute;
     bottom: 5px;
     right: 5px;
+}
+
+/* MENU MESSAGE  */
+.box_message i.fa-angle-down{
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    padding: 2px 0 2px 10px;
+    cursor: pointer;
+}
+.chats_body-row.sent .box_message i.fa-angle-down{
+    background-color: var(--color-message_sent);
+    -webkit-box-shadow: -10px 2px 25px 10px var(--color-message_sent); 
+    box-shadow: -10px 2px 25px 10px var(--color-message_sent);
+    
+}
+.chats_body-row.received .box_message i.fa-angle-down{
+    background-color: var(--color-message_received);
+    -webkit-box-shadow: -10px 2px 25px 10px var(--color-message_received); 
+    box-shadow: -10px 2px 25px 10px var(--color-message_received);
+}
+.box_message:hover i.fa-angle-down{
+    display: inline-block;
+}
+.box_message .menu_message{
+    width: 150px;
+    padding: 15px;
+    background-color: white;
+    position: absolute;
+    z-index: 10;
+    top: 90%;
+    right: 10px;
+    -webkit-box-shadow: -10px 2px 25px 0px var(--color-gray-header); 
+    box-shadow: -10px 2px 25px 0px var(--color-gray-header);
+}
+.box_message .menu_message > div{
+    cursor: pointer;
+}
+
+.box_message .menu_message > div:first-child:hover{
+    color: blue;
+}
+.box_message .menu_message > div:last-child:hover{
+    color: red;
+}
+.chats_body-row.sent .box_message .menu_message{
+    right: 10%;
+    border-radius: 15px 0 15px 15px;
+    
+}
+.chats_body-row.received .box_message .menu_message{
+    left: 50%;
+    border-radius: 0 15px 15px 15px;
+
+}
+
+.box_message .menu_message .message_info{
+    margin-bottom: 10px;
 }
 
 /* CHATS FOOTER  */

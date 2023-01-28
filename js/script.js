@@ -5,6 +5,7 @@ createApp({
         return{
             activePopUp: true,
             contactActive: 0,
+            currentMessage: 0,
             newMessage: '',
             searchContact: '',
             provaVa: true,
@@ -13,6 +14,7 @@ createApp({
                 avatar: '_io',
                 message: {
                     status: 'sent',
+                    statusMenu: false,
                 }
             },
             contacts: [
@@ -188,7 +190,8 @@ createApp({
                 this.contacts[this.contactActive].messages.push({
                     date: newDate,
                     message: this.newMessage,
-                    status: this.user.message.status 
+                    status: this.user.message.status,
+                    // statusMenu: this.user.message.statusMenu,
                 })
                 this.newMessage = '';
                 setTimeout(() => {
@@ -202,7 +205,8 @@ createApp({
             this.contacts[this.contactActive].messages.push({
                 date: newDate,
                 message: `Ciao ${this.user.name}, è bello sentirti, tutto ok!`,
-                status: 'received' 
+                status: 'received',
+                // statusMenu: false,
             })
         },
         searchFilter (){
@@ -297,8 +301,28 @@ createApp({
             }
             return 'Vuoto'
         },
+        menuMesssage(){
+
+            for(let i = 0 ; this.contacts[i].messages.lenght ; i++){
+                this.contacts[i].messages[i].statusMenu = false;
+            }
+        },
+        menuMesssageOpen(item, x){
+            console.log('this.currentMessage',this.currentMessage)
+            console.log('x', x)
+            item[this.currentMessage] = false;
+            this.currentMessage = x ;
+            console.log('this.currentMessage',this.currentMessage)
+            item.statusMenu = !item.statusMenu
+            
+        },
+        deleteMessage(x,index){
+            this.contacts[x].messages.splice(index,1)
+        }
+
     },
     mounted() {
+        this.menuMesssage()
     },
 
 }).mount('#app');
