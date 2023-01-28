@@ -311,9 +311,16 @@ createApp({
             console.log('x', x)
             console.log('item', item)
             console.log('this.currentMessage',this.currentMessage)
-            item.statusMenu = !item.statusMenu
-            this.contacts[this.contactActive].messages[this.currentMessage].statusMenu = false;
-            this.currentMessage = false;
+            if(this.contacts[this.contactActive].messages[this.currentMessage].statusMenu == true && this.contacts[this.contactActive].messages[this.currentMessage] != item){
+                this.contacts[this.contactActive].messages[this.currentMessage].statusMenu = false;
+                item.statusMenu = !item.statusMenu
+            }
+            else if(this.contacts[this.contactActive].messages[this.currentMessage] == item){
+                item.statusMenu = !item.statusMenu
+            }
+            else{
+                item.statusMenu = !item.statusMenu
+            }
             this.currentMessage = x ;
             
         },
