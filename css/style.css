@@ -153,6 +153,7 @@
     justify-content: space-between;
     border-bottom: 1px solid var(--color-gray-header);
     padding: 20px 0;
+    position: relative;
 }
 
 .list_contacts-card .card_left{
@@ -301,6 +302,7 @@
 }
 
 /* MENU MESSAGE  */
+.list_contacts-card i.fa-angle-down,
 .box_message i.fa-angle-down{
     display: none;
     position: absolute;
@@ -321,9 +323,11 @@
     -webkit-box-shadow: -10px 2px 25px 10px var(--color-message_received); 
     box-shadow: -10px 2px 25px 10px var(--color-message_received);
 }
+.list_contacts-card:hover i.fa-angle-down,
 .box_message:hover i.fa-angle-down{
     display: inline-block;
 }
+.list_contacts-card .menu_message,
 .box_message .menu_message{
     width: 150px;
     padding: 15px;
@@ -335,16 +339,20 @@
     -webkit-box-shadow: -10px 2px 25px 0px var(--color-gray-header); 
     box-shadow: -10px 2px 25px 0px var(--color-gray-header);
 }
+.list_contacts-card .menu_message > div,
 .box_message .menu_message > div{
     cursor: pointer;
 }
 
+.list_contacts-card .menu_message > div:first-child:hover,
 .box_message .menu_message > div:first-child:hover{
     color: blue;
 }
+.list_contacts-card .menu_message > div:last-child:hover,
 .box_message .menu_message > div:last-child:hover{
     color: red;
 }
+.list_contacts-card .menu_message,
 .chats_body-row.sent .box_message .menu_message{
     right: 10%;
     border-radius: 15px 0 15px 15px;
@@ -355,7 +363,6 @@
     border-radius: 0 15px 15px 15px;
 
 }
-
 .box_message .menu_message .message_info{
     margin-bottom: 10px;
 }
@@ -410,6 +417,7 @@
 }
 
 /* FOOTER LIST-CONTACTS --------- ACTIVE CARD*/
+.list_contact-active i.fa-angle-down,
 .list_contact-active{
     background-color: var(--color-gray-header);
 }

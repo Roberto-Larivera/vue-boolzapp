@@ -6,6 +6,7 @@ createApp({
             activePopUp: true,
             contactActive: 0,
             currentMessage: 0,
+            currentContact: 0,
             newMessage: '',
             searchContact: '',
             provaVa: true,
@@ -304,6 +305,7 @@ createApp({
         menuMesssage(){
             for(let i = 0 ; this.contacts[i].messages.lenght ; i++){
                 this.contacts[i].messages[i].statusMenu = false;
+                this.contacts[i].statusMenuList = false;
             }
         },
         menuMesssageOpen(item, x){
@@ -326,7 +328,28 @@ createApp({
         },
         deleteMessage(x,index){
             this.contacts[x].messages.splice(index,1)
-        }
+        },
+        menuMesssageOpenList(item, x){
+            console.log('this.currentContact',this.currentContact)
+            console.log('x', x)
+            console.log('item', item)
+            console.log('this.currentContact',this.currentContact)
+            if(this.contacts[this.currentContact].statusMenuList == true && this.contacts[this.currentContact] != item){
+                this.contacts[this.currentContact].statusMenuList = false;
+                item.statusMenuList = !item.statusMenuList
+            }
+            else if(this.contacts[this.currentContact] == item){
+                item.statusMenuList = !item.statusMenuList
+            }
+            else{
+                item.statusMenuList = !item.statusMenuList
+            }
+            this.currentContact = x ;
+            
+        },
+        deleteChatList(x,index){
+            this.contacts.splice(index,1)
+        },
 
     },
     mounted() {

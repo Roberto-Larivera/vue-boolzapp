@@ -96,7 +96,10 @@
                                         {{lastMessageTime(index)}}
                                     </span>
                                 </div>
-                                    
+                                <i class="fa-solid fa-angle-down" @click="menuMesssageOpenList(item, index)"></i>
+                                <div class="menu_message" v-if="item.statusMenuList == true">
+                                    <div @click="deleteChatList(contactActive,index)" >Delete chat</div>
+                                </div>
                             </li>
                         </template>
                        </ul>
