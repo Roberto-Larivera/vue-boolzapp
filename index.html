@@ -144,8 +144,13 @@
                                     </span>
                                     <i class="fa-solid fa-angle-down" @click="menuMesssageOpen(item, index)"></i>
                                     <div class="menu_message" v-if="item.statusMenu == true">
-                                        <div class="message_info">Message info</div>
+                                        <div class="message_info" @click="openMenuInfo(item, index)">Message info</div>
                                         <div @click="deleteMessage(contactActive,index)" >Delete message</div>
+                                    </div>
+                                    <div class="menu_message_info" v-if="item.statusMenuInfo == true">
+                                        <div class="message_info">Data e orario: <span class="message_info-date">{{item.date}}</span></div>
+                                        <div>Stato messaggio: <span class="message_info-status">{{item.status}}</span> </div>
+                                        <div @click="item.statusMenuInfo = !item.statusMenuInfo" class="message_info-close"><i class="fa-solid fa-xmark"></i></div>
                                     </div>
                             </div>
                         </div>

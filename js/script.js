@@ -333,6 +333,7 @@ createApp({
         menuMesssage(){
             for(let i = 0 ; this.contacts[i].messages.lenght ; i++){
                 this.contacts[i].messages[i].statusMenu = false;
+                this.contacts[i].messages[i].statusMenuInfo = false;
                 this.contacts[i].statusMenuList = false;
             }
         },
@@ -379,7 +380,10 @@ createApp({
         deleteChatList(x,index){
             this.contacts.splice(index,1)
         },
-
+        openMenuInfo(item, index){
+            this.menuMesssageOpen(item, index)
+            item.statusMenuInfo = !item.statusMenuInfo
+        }
     },
     mounted() {
         this.menuMesssage()

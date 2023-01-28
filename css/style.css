@@ -327,6 +327,7 @@
 .box_message:hover i.fa-angle-down{
     display: inline-block;
 }
+.box_message  .menu_message_info,
 .list_contacts-card .menu_message,
 .box_message .menu_message{
     width: 150px;
@@ -339,6 +340,12 @@
     -webkit-box-shadow: -10px 2px 25px 0px var(--color-gray-header); 
     box-shadow: -10px 2px 25px 0px var(--color-gray-header);
 }
+.box_message  .menu_message_info{
+    width: 300px;
+    z-index: 15;
+}
+
+.box_message  .menu_message_info > div,
 .list_contacts-card .menu_message > div,
 .box_message .menu_message > div{
     cursor: pointer;
@@ -353,11 +360,13 @@
     color: red;
 }
 .list_contacts-card .menu_message,
+.chats_body-row.sent .box_message  .menu_message_info,
 .chats_body-row.sent .box_message .menu_message{
     right: 10%;
     border-radius: 15px 0 15px 15px;
     
 }
+.chats_body-row.received .box_message  .menu_message_info,
 .chats_body-row.received .box_message .menu_message{
     left: 50%;
     border-radius: 0 15px 15px 15px;
@@ -367,6 +376,27 @@
     margin-bottom: 10px;
 }
 
+.menu_message_info{
+    pointer-events: none;
+}
+.menu_message_info .message_info-close{
+    pointer-events: auto;
+    text-align: center;
+    margin-top: 10px;
+    color: gray;
+}
+.menu_message_info .message_info-close i{
+    padding: 5px;
+    font-size: 1.2rem;
+}
+.menu_message_info .message_info-close i:hover{
+    color: red;
+}
+
+.menu_message_info .message_info-status,
+.menu_message_info .message_info-date{
+    color: lightseagreen;
+}
 /* CHATS FOOTER  */
 #my_app .my_app-chats .my_app-chats-footer{
     height: var(--height-app-header);

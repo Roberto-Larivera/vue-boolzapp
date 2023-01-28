@@ -6,7 +6,7 @@
 - Cliccando sulla scritta "Attiva notifiche desktop" che si trova nel pop-up delle notifiche, farà rimuovere il pop-up e far rimodellare la lista;
 - Finchè input della chat resterà vuoto si vedrà il bottone del microfono, e quando inizierai a scrivere comparirà il bottone dell'invio , (resterà sempre la possibilità di inviare il messaggio tramite il tasto Invio, con l'aggiunta del button);
 - Aggiunta funzione per far si che rimanga un solo menuMessage / menuChatList aperto contemporaneamente;
-
+- Aggiunta menu-message-info per ogni messaggio
 
 
 Milestone 1
