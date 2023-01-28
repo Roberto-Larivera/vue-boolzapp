@@ -42,7 +42,7 @@
                     </div>
 
                     <!-- CONTACTS POP-UP -->
-                    <div class="my_app-contacts-popup">
+                    <div class="my_app-contacts-popup" v-if="activePopUp == true">
                         
                         <div class="pop_left">
                             <span class="pop_icon">
@@ -55,13 +55,13 @@
                                 Ricevi notifiche di nuovi messaggi
                             </h5>
                             <span>
-                                <a href="#">Attiva notifiche desktop</a>
+                                <a @click="activePopUp = false" href="#">Attiva notifiche desktop</a>
                             </span>
                         </div>
                     </div>
 
                     <!-- CONTACTS FOOTER -->
-                    <div class="my_app-contacts-footer active__popup">
+                    <div class="my_app-contacts-footer" :class="(activePopUp == true)? 'active__popup': '' ">
 
                         <!-- FOOTER SEARCH-->
                        <div class="contacts_footer-search">

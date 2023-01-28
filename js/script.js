@@ -3,8 +3,9 @@ const {createApp} = Vue
 createApp({
     data(){
         return{
-            contactActive : 0,
-            newMessage : '',
+            activePopUp: true,
+            contactActive: 0,
+            newMessage: '',
             searchContact: '',
             provaVa: true,
             user:{
