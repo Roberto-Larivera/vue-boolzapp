@@ -12,6 +12,7 @@ createApp({
             newContact: false,
             emptyList: false,
             menuChat: false,
+            menuChatUser: false,
             user:{
                 // name: 'Sofia',
                 name: 'Roberto',
@@ -23,8 +24,8 @@ createApp({
                 }
             },
             newContactChat:{
-                name: 'Prova',
-                avatar: '_1',
+                name: null,
+                avatar: null,
                 visible: true,
                 messages: []
             },
@@ -47,6 +48,11 @@ createApp({
                         { 
                             date: '10/01/2020 16:15:22', 
                             message: 'Tutto fatto!', 
+                            status: 'received'
+                        },
+                        { 
+                            date: '10/01/2020 18:15:22', 
+                            message: 'Prova ad usare ".received:" e vedi cosa succede!', 
                             status: 'received'
                         }
                 ],
@@ -393,7 +399,10 @@ createApp({
                 //console.log('ciaoBello')
                 this.emptyList = true;
             }
-            this.contacts.splice(index,1)
+
+            this.emptyList = true;
+            this.contacts.splice(index,1);
+            this.currentContact = 0;
            
             
         },
@@ -402,12 +411,14 @@ createApp({
             item.statusMenuInfo = !item.statusMenuInfo
         },
         newChatAddList(){
-            this.contacts.push({
-                name: 'Prova',
-                avatar: '_1',
+            // this.contacts.push({             // utilizzo .unshift per pushare all'inizio dell'array
+            this.contacts.unshift({
+                name: this.newContactChat.name,
+                avatar: this.newContactChat.avatar,
                 visible: true,
                 messages: []
             })
+            this.menuChatUser = false
         },
         deleteAllChats(){
             this.emptyList = true;

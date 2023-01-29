@@ -262,6 +262,7 @@
     background-image: url(../img/mine.jpg);
     padding: 20px;
     overflow-y: auto;
+    position: relative;
 }
 
 .my_app-chats-body .chats_body-row{
@@ -358,7 +359,7 @@
 .box_message .menu_message > div{
     cursor: pointer;
 }
-
+.my_app-contacts-header .menu_chat .my_button_add:hover,
 .list_contacts-card .menu_message > div:first-child:hover,
 .box_message .menu_message > div:first-child:hover{
     color: var(--color-blue-notif);
@@ -378,6 +379,9 @@
     right: 10%;
     border-radius: 15px 0 15px 15px;
     
+}
+.list_contacts-card .menu_message{
+    top: 55%;
 }
 .chats_body-row.received .box_message  .menu_message_info,
 .chats_body-row.received .box_message .menu_message{
@@ -409,6 +413,10 @@
 .menu_message_info .message_info-status,
 .menu_message_info .message_info-date{
     color: lightseagreen;
+}
+
+.my_app-contacts-header .menu_chat > div{
+    margin-bottom: 10px;
 }
 /* CHATS FOOTER  */
 #my_app .my_app-chats .my_app-chats-footer{
@@ -451,6 +459,77 @@
     padding: 0 10px;
 }
 
+/* MENU NEW CHAT  */
+.menu_add-chat{
+    border-radius: 25px;
+    padding: 30px;
+    background-color: white;
+    z-index: 20;
+    -webkit-box-shadow: -10px 2px 25px 0px var(--color-gray-header); 
+    box-shadow: -10px 2px 25px 0px var(--color-gray-header);
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    display: flex;
+    flex-direction: column;
+}
+.menu_add-chat .box_menu div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+    font-weight:700 ;
+
+}
+.menu_add-chat .box_menu div select,
+.menu_add-chat .box_menu div input{
+    margin-top: 5px;
+    border: none;
+    padding: 5px;
+    background-color: whitesmoke;
+    border-radius: 5px;
+}
+.menu_add-chat .box_menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.menu_add-chat .box_menu,
+.menu_add-chat .profile_image{
+    width: 100%;
+}
+.menu_add-chat .profile_image{
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    font-weight: 900 ;
+}
+.menu_add-chat .profile_image img{
+    width: var( --height_width-profile_image);
+    height: var( --height_width-profile_image);
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.menu_add-chat .profile_image button{
+    cursor: pointer;
+    border: none;
+    border-radius: 50% ;
+    padding: 10px;
+    color: black;
+    background-color: white;
+    margin-top: 20px;
+}
+.menu_add-chat .profile_image button:hover{
+    color: white;
+    background-color: black;
+}
 
 /* DINAMIC */
 

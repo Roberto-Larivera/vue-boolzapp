@@ -40,10 +40,10 @@
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
                         <div class="menu_chat" v-if="menuChat == true" >
-                            <div @click="" >Create new contact</div>
-                            <div @click="" >Create new chat</div>
-                            <div class="my_button_delete"  @click="deleteChatList(contactActive,index)" >Delete current chat</div>
-                            <div class="my_button_delete" @click="deleteAllChats()" >Delete all chat</div>
+                            <div class="my_button_add" @click="menuChatUser = !menuChatUser , this.menuChat = false" >Crea un nuovo utente</div>
+                            <div class="my_button_add" @click="" >Inizia una nuova chat</div>
+                            <div class="my_button_delete"  @click="deleteChatList(contactActive,index)" >Elimina la chat corrente</div>
+                            <div class="my_button_delete" @click="deleteAllChats()" >Elimina tutte le chat</div>
                         </div>
                     </div>
 
@@ -83,7 +83,7 @@
                        <!-- FOOTER LIST-CONTACTS-->
                        <ul class="contacts_footer-list">
                         <template v-for="(item, index) in contacts">
-                            <li class="list_contacts-card"  v-if="item.visible" :class="(contactActive == index) ? 'list_contact-active' : '' " @click="contactActive = index">
+                            <li class="list_contacts-card"  v-if="item.visible" :class="(contactActive == index) ? 'list_contact-active' : '' " @click="contactActive = index , emptyList = false">
                                <div class="card_left">
                                     <div class="card_image">
                                         <img :src="'img/avatar'+item.avatar+'.jpg'" :alt="item.name">
@@ -104,7 +104,7 @@
                                 </div>
                                 <i class="fa-solid fa-angle-down" @click="menuMesssageOpenList(item, index)"></i>
                                 <div class="menu_message" v-if="item.statusMenuList == true">
-                                    <div @click="deleteChatList(contactActive,index)" >Delete chat</div>
+                                    <div @click="deleteChatList(contactActive,index)" >Elimina chat</div>
                                 </div>
                             </li>
                         </template>
@@ -141,27 +141,59 @@
                     <div class="my_app-chats-body">
                         <!-- MESSAGE  -->
                         
-                        <div class="chats_body-row" v-for="(item, index) in contacts[contactActive].messages" :class="(item.status == 'sent') ? 'sent' : 'received'" v-if="emptyList==false"> <!--:class="item.status"-->
-                            <div class="box_message" @click.prevent.right="menuMesssageOpen(item, index)" >
-                                    <p class="box_message-text">
-                                        {{item.message}}
-                                    </p>
-                                    <span class="box_message-time">
-                                        {{newDateMessageSimple(item.date)}}
-                                    </span>
-                                    <i class="fa-solid fa-angle-down" @click="menuMesssageOpen(item, index)"></i>
-                                    <div class="menu_message" v-if="item.statusMenu == true">
-                                        <div class="message_info" @click="openMenuInfo(item, index)">Message info</div>
-                                        <div @click="deleteMessage(contactActive,index)" >Delete message</div>
-                                    </div>
-                                    <div class="menu_message_info" v-if="item.statusMenuInfo == true">
-                                        <div class="message_info">Data e orario: <span class="message_info-date">{{item.date}}</span></div>
-                                        <div>Stato messaggio: <span class="message_info-status">{{item.status}}</span> </div>
-                                        <div @click="item.statusMenuInfo = !item.statusMenuInfo" class="message_info-close"><i class="fa-solid fa-xmark"></i></div>
-                                    </div>
+                        <template v-if="emptyList == false  ">
+                            <div class="chats_body-row" v-for="(item, index) in contacts[contactActive].messages" :class="(item.status == 'sent') ? 'sent' : 'received'" >
+                                <div class="box_message" @click.prevent.right="menuMesssageOpen(item, index)" >
+                                        <p class="box_message-text">
+                                            {{item.message}}
+                                        </p>
+                                        <span class="box_message-time">
+                                            {{newDateMessageSimple(item.date)}}
+                                        </span>
+                                        <i class="fa-solid fa-angle-down" @click="menuMesssageOpen(item, index)"></i>
+                                        <div class="menu_message" v-if="item.statusMenu == true">
+                                            <div class="message_info" @click="openMenuInfo(item, index)">Info Messaggio</div>
+                                            <div @click="deleteMessage(contactActive,index)" >Elimina messaggio</div>
+                                        </div>
+                                        <div class="menu_message_info" v-if="item.statusMenuInfo == true">
+                                            <div class="message_info">Data e orario: <span class="message_info-date">{{item.date}}</span></div>
+                                            <div>Stato messaggio: <span class="message_info-status">{{item.status}}</span> </div>
+                                            <div @click="item.statusMenuInfo = !item.statusMenuInfo" class="message_info-close"><i class="fa-solid fa-xmark"></i></div>
+                                        </div>
+                                </div>
                             </div>
+                        </template>
+                        <!-- MENU CHAT USER -->
+                        <div class="menu_add-chat" v-if="menuChatUser == true">
+                            <div class="box_menu">
+                                    <div>
+                                        <label for="name_input_1">Nome</label>
+                                        <input type="text" id="name_input_1" placeholder="Roberto" v-model="newContactChat.name">
+                                    </div>
+                                    <div>
+                                        <label for="avatar_input_1">Avatar</label>
+                                        <select name="" id="" v-model="newContactChat.avatar" >
+                                            <option disabled selected> Uomo o Donna ?</option>
+                                            <option value="_io">Donna 1</option>
+                                            <option value="_6">Donna 2</option>
+                                            <option value="_1">Uomo 1</option>
+                                            <option value="_2">Uomo 2</option>
+                                            <option value="_3">Uomo 3</option>
+                                            <option value="_4">Uomo 4</option>
+                                            <option value="_5">Uomo 5</option>
+                                            <option value="_7">Uomo 6</option>
+                                            <option value="c">Uomo 7</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="profile_image" v-if="newContactChat.avatar != null || newContactChat.name != null">
+                                    <img :src="'img/avatar'+newContactChat.avatar+'.jpg'" :alt="newContactChat.name" v-if="newContactChat.avatar != null">
+                                    {{newContactChat.name}}
+                                    <button @click="newChatAddList()" ><i class="fa-solid fa-user-check"></i></button>
+                            </div>
+                            <h3>
+                            </h3>
                         </div>
-                        
                     </div>
                     
                     <!-- CHATS FOOTER-->
