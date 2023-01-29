@@ -9,6 +9,8 @@ createApp({
             currentContact: 0,
             newMessage: '',
             searchContact: '',
+            searchMessage: '',
+            searchMessageBox: false,
             newContact: false,
             emptyList: false,
             menuChat: false,
@@ -351,6 +353,7 @@ createApp({
                 this.contacts[i].messages[i].statusMenu = false;
                 this.contacts[i].messages[i].statusMenuInfo = false;
                 this.contacts[i].statusMenuList = false;
+                this.contacts[i].messages[i].statusSearch = false;
             }
         },
         menuMesssageOpen(item, x){
@@ -427,7 +430,24 @@ createApp({
            
             
         },
-        
+        searchFilterMessage (){
+            if(this.searchMessage == ''){
+                this.contacts[this.contactActive].messages.forEach((element,i,arr) => {
+                    
+                    this.contacts[this.contactActive].messages[i].statusSearch = false;
+    
+                });
+            }else{
+                this.contacts[this.contactActive].messages.forEach((element,i,arr) => {
+                    
+                    this.contacts[this.contactActive].messages[i].statusSearch = false;
+                    if(this.contacts[this.contactActive].messages[i].message.toLowerCase().includes(this.searchMessage.toLowerCase())){
+                        this.contacts[this.contactActive].messages[i].statusSearch = true;
+                    }
+                });
+
+            }
+        },
     },
     mounted() {
         this.menuMesssage()

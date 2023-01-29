@@ -255,6 +255,27 @@
     cursor: pointer;
 }
 
+/* SEARCH MESSAGE */
+.my_app-chats-body .input_search_message{
+    position: absolute;
+    top: 0;
+    right: 50%;
+    transform: translateX(50%);
+    width: 60%;
+    z-index: 30;
+    -webkit-box-shadow: -10px 1px 30px 5px var(--color-green-bg); 
+    box-shadow: -10px 1px 30px 5px var(--color-green-bg);
+    border-radius: 0 0 15px 15px;
+
+}
+.my_app-chats-body .input_search_message input{
+    width: 100%;
+    padding: 10px;
+    border-radius: 0 0 15px 15px;
+    border: none;
+    background-color: var(--color-gray-header);
+}
+
 /* CHATS BODY  */
 #my_app .my_app-chats .my_app-chats-body{
     height: calc(100% - (var(--height-app-header) * 2) );
@@ -300,6 +321,16 @@
 .my_app-chats-body .box_message .box_message-text{
     padding-bottom: 10px;
 }
+
+/*SEARCH*/
+/* .my_app-chats-body .box_message.active_search{    
+    background-color: rgba(127, 255, 212, 0.555);
+} */
+.my_app-chats-body .box_message.active_search .box_message-text{    
+    color: var(--color-blue-notif);
+    font-weight: 700;
+}
+/*END SEARCH*/
 .my_app-chats-body .box_message .box_message-time{
     font-size: .5rem;
     color: var(--color-text_message);

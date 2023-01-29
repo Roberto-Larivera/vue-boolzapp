@@ -131,7 +131,7 @@
                             </div>
                         </div>
                         <div class="chats_header-right">
-                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-solid fa-magnifying-glass" @click="searchMessageBox = !searchMessageBox"></i>
                             <i class="fa-solid fa-paperclip"></i>
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
@@ -139,15 +139,20 @@
 
                     <!-- CHATS BODY-->
                     <div class="my_app-chats-body">
+                        
+                        <div class="input_search_message" v-if="searchMessageBox == true">
+                            <input type="search" placeholder="Cerca un messaggio" v-model="searchMessage" @keyup="searchFilterMessage ()">
+                        </div>
+                        
                         <!-- MESSAGE  -->
                         
                         <template v-if="emptyList == false  ">
                             <div class="chats_body-row" v-for="(item, index) in contacts[contactActive].messages" :class="(item.status == 'sent') ? 'sent' : 'received'" >
-                                <div class="box_message" @click.prevent.right="menuMesssageOpen(item, index)" >
-                                        <p class="box_message-text">
+                                <div class="box_message" @click.prevent.right="menuMesssageOpen(item, index)" :class="(item.statusSearch == true)? 'active_search': '' ">
+                                        <p class="box_message-text" >
                                             {{item.message}}
                                         </p>
-                                        <span class="box_message-time">
+                                        <span class="box_message-time" >
                                             {{newDateMessageSimple(item.date)}}
                                         </span>
                                         <i class="fa-solid fa-angle-down" @click="menuMesssageOpen(item, index)"></i>
@@ -186,7 +191,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="profile_image" v-if="newContactChat.avatar != null || newContactChat.name != null">
+                                <div class="profile_image" v-if="newContactChat.avatar != null && newContactChat.name != null">
                                     <img :src="'img/avatar'+newContactChat.avatar+'.jpg'" :alt="newContactChat.name" v-if="newContactChat.avatar != null">
                                     {{newContactChat.name}}
                                     <button @click="newChatAddList()" ><i class="fa-solid fa-user-check"></i></button>
