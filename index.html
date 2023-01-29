@@ -35,9 +35,15 @@
                             </h3>
                         </div>
                         <div class="contacts_header-right">
-                            <i class="fa-solid fa-message"></i>
+                            <i class="fa-solid fa-message" :class="menuChat == true? 'active': '' " @click="menuChat = !menuChat"></i>
                             <i class="fa-solid fa-circle-notch"></i>
                             <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                        <div class="menu_chat" v-if="menuChat == true" >
+                            <div @click="" >Create new contact</div>
+                            <div @click="" >Create new chat</div>
+                            <div class="my_button_delete"  @click="deleteChatList(contactActive,index)" >Delete current chat</div>
+                            <div class="my_button_delete" @click="deleteAllChats()" >Delete all chat</div>
                         </div>
                     </div>
 

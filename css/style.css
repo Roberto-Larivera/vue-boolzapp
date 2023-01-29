@@ -32,6 +32,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 .my_app-contacts-header .contacts_header-left{
     display: flex;
@@ -63,6 +64,12 @@
     font-size: 1.1rem;
     color: var(--color-gray_black-button_head);
     cursor: pointer;
+}
+.my_app-contacts-header .contacts_header-right i.fa-message:hover{
+    color: var(--color-blue-notif);
+}
+.my_app-contacts-header .contacts_header-right i.fa-message.active{
+    color: var(--color-blue-notif);
 }
 
 /* CONTACTS POP-UP */
@@ -327,6 +334,7 @@
 .box_message:hover i.fa-angle-down{
     display: inline-block;
 }
+.my_app-contacts-header .menu_chat,
 .box_message  .menu_message_info,
 .list_contacts-card .menu_message,
 .box_message .menu_message{
@@ -344,7 +352,7 @@
     width: 300px;
     z-index: 15;
 }
-
+.my_app-contacts-header .menu_chat > div,
 .box_message  .menu_message_info > div,
 .list_contacts-card .menu_message > div,
 .box_message .menu_message > div{
@@ -353,11 +361,16 @@
 
 .list_contacts-card .menu_message > div:first-child:hover,
 .box_message .menu_message > div:first-child:hover{
-    color: blue;
+    color: var(--color-blue-notif);
 }
+.my_app-contacts-header .menu_chat .my_button_delete:hover,
 .list_contacts-card .menu_message > div:last-child:hover,
 .box_message .menu_message > div:last-child:hover{
     color: red;
+}
+.my_app-contacts-header .menu_chat{
+    right: 25%;
+    border-radius: 15px 0 15px 15px;
 }
 .list_contacts-card .menu_message,
 .chats_body-row.sent .box_message  .menu_message_info,

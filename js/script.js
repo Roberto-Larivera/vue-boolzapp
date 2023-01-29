@@ -11,6 +11,7 @@ createApp({
             searchContact: '',
             newContact: false,
             emptyList: false,
+            menuChat: false,
             user:{
                 // name: 'Sofia',
                 name: 'Roberto',
@@ -22,12 +23,10 @@ createApp({
                 }
             },
             newContactChat:{
-                name: 'Sofia',
-                avatar: '_io',
-                message: {
-                    status: 'receive',
-                    statusMenu: false,
-                }
+                name: 'Prova',
+                avatar: '_1',
+                visible: true,
+                messages: []
             },
             contacts: [
                 { 
@@ -389,9 +388,9 @@ createApp({
             
         },
         deleteChatList(x,index){
-            
+            this.menuChat = false
             if(this.contacts.length == 1){
-                console.log('ciaoBello')
+                //console.log('ciaoBello')
                 this.emptyList = true;
             }
             this.contacts.splice(index,1)
@@ -401,6 +400,21 @@ createApp({
         openMenuInfo(item, index){
             this.menuMesssageOpen(item, index)
             item.statusMenuInfo = !item.statusMenuInfo
+        },
+        newChatAddList(){
+            this.contacts.push({
+                name: 'Prova',
+                avatar: '_1',
+                visible: true,
+                messages: []
+            })
+        },
+        deleteAllChats(){
+            this.emptyList = true;
+            this.menuChat = false
+            this.contacts = ['']
+           
+            
         },
         
     },
