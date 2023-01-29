@@ -102,7 +102,7 @@
                                 </div>
                             </li>
                         </template>
-                       </ul>
+                    </ul>
                     </div>
                 </div>
 
@@ -113,13 +113,13 @@
                     <div class="my_app-chats-header">
                          <div class="chats_header-left"  >   <!--v-for="(item,index) in contacts" -->
                             <div class="profile_sent_image">
-                                <img :src="'img/avatar'+contacts[contactActive].avatar+'.jpg'" :alt="contacts[contactActive].name">
+                                <img :src="'img/avatar'+contacts[contactActive].avatar+'.jpg'" :alt="contacts[contactActive].name" v-if="emptyList==false">
                             </div>
                             <div class="profile_sent_name">
-                                <h3>
+                                <h3 v-if="emptyList==false">
                                     {{contacts[contactActive].name}}
                                 </h3>
-                                <span>
+                                <span v-if="emptyList==false">
                                     Ultimo accesso oggi alle {{lastMessageTimeReceived(contactActive)}}
                                 </span>
                             </div>
@@ -134,7 +134,8 @@
                     <!-- CHATS BODY-->
                     <div class="my_app-chats-body">
                         <!-- MESSAGE  -->
-                        <div class="chats_body-row" v-for="(item, index) in contacts[contactActive].messages" :class="(item.status == 'sent') ? 'sent' : 'received'"> <!--:class="item.status"-->
+                        
+                        <div class="chats_body-row" v-for="(item, index) in contacts[contactActive].messages" :class="(item.status == 'sent') ? 'sent' : 'received'" v-if="emptyList==false"> <!--:class="item.status"-->
                             <div class="box_message" @click.prevent.right="menuMesssageOpen(item, index)" >
                                     <p class="box_message-text">
                                         {{item.message}}
@@ -154,7 +155,7 @@
                                     </div>
                             </div>
                         </div>
-
+                        
                     </div>
                     
                     <!-- CHATS FOOTER-->

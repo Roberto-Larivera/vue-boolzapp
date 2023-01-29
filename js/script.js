@@ -9,12 +9,23 @@ createApp({
             currentContact: 0,
             newMessage: '',
             searchContact: '',
-            provaVa: true,
+            newContact: false,
+            emptyList: false,
             user:{
+                // name: 'Sofia',
+                name: 'Roberto',
+                // avatar: '_io',
+                avatar: '_2',
+                message: {
+                    status: 'sent',
+                    statusMenu: false,
+                }
+            },
+            newContactChat:{
                 name: 'Sofia',
                 avatar: '_io',
                 message: {
-                    status: 'sent',
+                    status: 'receive',
                     statusMenu: false,
                 }
             },
@@ -338,10 +349,10 @@ createApp({
             }
         },
         menuMesssageOpen(item, x){
-            console.log('this.currentMessage',this.currentMessage)
-            console.log('x', x)
-            console.log('item', item)
-            console.log('this.currentMessage',this.currentMessage)
+            // console.log('this.currentMessage',this.currentMessage)
+            // console.log('x', x)
+            // console.log('item', item)
+            // console.log('this.currentMessage',this.currentMessage)
             if(this.contacts[this.contactActive].messages[this.currentMessage].statusMenu == true && this.contacts[this.contactActive].messages[this.currentMessage] != item){
                 this.contacts[this.contactActive].messages[this.currentMessage].statusMenu = false;
                 item.statusMenu = !item.statusMenu
@@ -360,10 +371,10 @@ createApp({
             this.currentMessage = 0;
         },
         menuMesssageOpenList(item, x){
-            console.log('this.currentContact',this.currentContact)
-            console.log('x', x)
-            console.log('item', item)
-            console.log('this.currentContact',this.currentContact)
+            // console.log('this.currentContact',this.currentContact)
+            // console.log('x', x)
+            // console.log('item', item)
+            // console.log('this.currentContact',this.currentContact)
             if(this.contacts[this.currentContact].statusMenuList == true && this.contacts[this.currentContact] != item){
                 this.contacts[this.currentContact].statusMenuList = false;
                 item.statusMenuList = !item.statusMenuList
@@ -378,12 +389,20 @@ createApp({
             
         },
         deleteChatList(x,index){
+            
+            if(this.contacts.length == 1){
+                console.log('ciaoBello')
+                this.emptyList = true;
+            }
             this.contacts.splice(index,1)
+           
+            
         },
         openMenuInfo(item, index){
             this.menuMesssageOpen(item, index)
             item.statusMenuInfo = !item.statusMenuInfo
-        }
+        },
+        
     },
     mounted() {
         this.menuMesssage()
