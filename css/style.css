@@ -65,9 +65,11 @@
     color: var(--color-gray_black-button_head);
     cursor: pointer;
 }
+.my_app-chats-header .chats_header-right i.fa-magnifying-glass:hover,
 .my_app-contacts-header .contacts_header-right i.fa-message:hover{
     color: var(--color-blue-notif);
 }
+.my_app-chats-header .chats_header-right i.fa-magnifying-glass.active,
 .my_app-contacts-header .contacts_header-right i.fa-message.active{
     color: var(--color-blue-notif);
 }
@@ -218,6 +220,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 .my_app-chats-header .chats_header-left{
     display: flex;
@@ -256,24 +259,25 @@
 }
 
 /* SEARCH MESSAGE */
-.my_app-chats-body .input_search_message{
-    position: absolute;
-    top: 0;
+.my_app-chats-header .input_search_message{
+    position:absolute;
+    top: 100%;
     right: 50%;
     transform: translateX(50%);
     width: 60%;
     z-index: 30;
-    -webkit-box-shadow: -10px 1px 30px 5px var(--color-green-bg); 
-    box-shadow: -10px 1px 30px 5px var(--color-green-bg);
+    -webkit-box-shadow: -10px 1px 30px 5px var(--color-message_sent); 
+    box-shadow: -10px 1px 30px 5px var(--color-message_sent);
     border-radius: 0 0 15px 15px;
 
 }
-.my_app-chats-body .input_search_message input{
+.my_app-chats-header .input_search_message input{
     width: 100%;
     padding: 10px;
     border-radius: 0 0 15px 15px;
     border: none;
-    background-color: var(--color-gray-header);
+    /* background-color: var(--color-);  effetto trasparente non idoneo */
+    background-color: var(--color-message_received);
 }
 
 /* CHATS BODY  */

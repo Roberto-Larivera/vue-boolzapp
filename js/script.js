@@ -434,13 +434,22 @@ createApp({
         },
         newChatAddList(){
             // this.contacts.push({             // utilizzo .unshift per pushare all'inizio dell'array
-            this.contacts.unshift({
-                name: this.newContactChat.name,
-                avatar: this.newContactChat.avatar,
-                visible: true,
-                messages: []
-            })
-            this.menuChatUser = false
+            if(this.newContactChat.name != "" || this.newContactChat.name != null || this.newContactChat.name != undefined){
+                console.log('entro qui,', this.newContactChat.name)
+                this.contacts.unshift({
+                    name: this.newContactChat.name,
+                    avatar: this.newContactChat.avatar,
+                    visible: true,
+                    messages: []
+                })
+                this.menuChatUser = false;
+                this.newContactChat = { 
+                    name: null,
+                    avatar: null,
+                    visible: true,
+                    messages: []
+                };
+            }
         },
         deleteAllChats(){
             this.emptyList = true;

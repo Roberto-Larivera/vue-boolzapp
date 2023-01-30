@@ -134,18 +134,18 @@
                             </div>
                         </div>
                         <div class="chats_header-right">
-                            <i class="fa-solid fa-magnifying-glass" @click="searchMessageBox = !searchMessageBox"></i>
+                            <i class="fa-solid fa-magnifying-glass" :class="searchMessageBox == true? 'active': '' " @click="searchMessageBox = !searchMessageBox"></i>
                             <i class="fa-solid fa-paperclip"></i>
                             <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                        <div class="input_search_message" v-if="searchMessageBox == true" >
+                            <input type="search" placeholder="Cerca un messaggio" v-model="searchMessage" @keyup="searchFilterMessage ()">
                         </div>
                     </div> 
                     
                     <!-- CHATS BODY-->
                     <div class="my_app-chats-body">
                         
-                        <div class="input_search_message" v-if="searchMessageBox == true" >
-                            <input type="search" placeholder="Cerca un messaggio" v-model="searchMessage" @keyup="searchFilterMessage ()">
-                        </div>
                         
                         <!-- MESSAGE  -->
                         
@@ -191,14 +191,14 @@
                                             <option value="_4">Uomo 4</option>
                                             <option value="_5">Uomo 5</option>
                                             <option value="_7">Uomo 6</option>
-                                            <option value="c">Uomo 7</option>
+                                            <option value="_8">Uomo 7</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="profile_image" v-if="newContactChat.avatar != null && newContactChat.name != null">
                                     <img :src="'img/avatar'+newContactChat.avatar+'.jpg'" :alt="newContactChat.name" v-if="newContactChat.avatar != null">
                                     {{newContactChat.name}}
-                                    <button @click="newChatAddList()" ><i class="fa-solid fa-user-check"></i></button>
+                                    <button @click="newChatAddList()" ><i class="fa-solid fa-user-check"></i></button v-if="newContactChat.avatar != null && newContactChat.name != undefined">
                             </div>
                             <h3>
                             </h3>
