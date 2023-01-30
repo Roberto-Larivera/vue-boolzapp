@@ -18,8 +18,8 @@
 
 </head>
 <body>
-    <div id="app">
-        <div id="my_bg_app">
+    <div id="app" >
+        <div id="my_bg_app" :class="(darkMode == true)? 'dark_mode':''">
             <div id="my_app">
 
                 <!-- APP CONTACTS -->
@@ -36,7 +36,7 @@
                         </div>
                         <div class="contacts_header-right">
                             <i class="fa-solid fa-message" :class="menuChat == true? 'active': '' " @click="menuChat = !menuChat"></i>
-                            <i class="fa-solid fa-circle-notch"></i>
+                            <i class="fa-solid fa-circle-notch"@click="darkMode = !darkMode" ></i>
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
                         <div class="menu_chat" v-if="menuChat == true" >
@@ -113,7 +113,7 @@
                 </div>
 
                 <!-- APP CHATS -->
-                <div class="my_app-chats" >
+                <div class="my_app-chats">
 
                     <!-- CHATS HEADER-->
                     
@@ -197,7 +197,9 @@
                                 </div>
                                 <div class="profile_image" v-if="newContactChat.avatar != null && newContactChat.name != null">
                                     <img :src="'img/avatar'+newContactChat.avatar+'.jpg'" :alt="newContactChat.name" v-if="newContactChat.avatar != null">
-                                    {{newContactChat.name}}
+                                    <h3>
+                                        {{newContactChat.name}}
+                                    </h3>
                                     <button @click="newChatAddList()" ><i class="fa-solid fa-user-check"></i></button v-if="newContactChat.avatar != null && newContactChat.name != undefined">
                             </div>
                             <h3>

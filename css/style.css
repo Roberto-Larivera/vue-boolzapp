@@ -20,7 +20,6 @@
 #my_app > .my_app-contacts{
     height: 100%;
     width: 40%;
-    background-color: red;
 }
 
 /* CONTACTS HEADER */
@@ -67,11 +66,11 @@
 }
 .my_app-chats-header .chats_header-right i.fa-magnifying-glass:hover,
 .my_app-contacts-header .contacts_header-right i.fa-message:hover{
-    color: var(--color-blue-notif);
+    color: var(--color-blue-notif) !important;
 }
 .my_app-chats-header .chats_header-right i.fa-magnifying-glass.active,
 .my_app-contacts-header .contacts_header-right i.fa-message.active{
-    color: var(--color-blue-notif);
+    color: var(--color-blue-notif) !important;
 }
 
 /* CONTACTS POP-UP */
@@ -208,7 +207,6 @@
 #my_app > .my_app-chats{
     height: 100%;
     width: 60%;
-    background-color: blue;
 }
 
 /* CHATS HEADER  */
@@ -324,6 +322,7 @@
 
 .my_app-chats-body .box_message .box_message-text{
     padding-bottom: 10px;
+    margin-right: 20px;
 }
 
 /*SEARCH*/
@@ -401,12 +400,12 @@
 .my_app-contacts-header .menu_chat .my_button_add:hover,
 .list_contacts-card .menu_message > div:first-child:hover,
 .box_message .menu_message > div:first-child:hover{
-    color: var(--color-blue-notif);
+    color: var(--color-blue-notif) !important;
 }
 .my_app-contacts-header .menu_chat .my_button_delete:hover,
 .list_contacts-card .menu_message > div:last-child:hover,
 .box_message .menu_message > div:last-child:hover{
-    color: red;
+    color: red !important;
 }
 .my_app-contacts-header .menu_chat{
     right: 25%;
@@ -446,7 +445,7 @@
     font-size: 1.2rem;
 }
 .menu_message_info .message_info-close i:hover{
-    color: red;
+    color: red !important;
 }
 
 .menu_message_info .message_info-status,
@@ -562,12 +561,12 @@
     border-radius: 50% ;
     padding: 10px;
     color: black;
-    background-color: white;
+    background-color: whitesmoke;
     margin-top: 20px;
 }
 .menu_add-chat .profile_image button:hover{
-    color: white;
-    background-color: black;
+    color: white !important;
+    background-color: black !important;
 }
 
 /* DINAMIC */
@@ -581,4 +580,140 @@
 .list_contact-active i.fa-angle-down,
 .list_contact-active{
     background-color: var(--color-gray-header);
+}
+
+
+/* DARK-MODE  */
+/* .dark_mode{filter: invert(1);} */
+/* .dark_mode{
+    
+} */
+#my_bg_app.dark_mode{
+    background: linear-gradient(180deg, rgba(0,153,136,1) 20%, var(--dark-gray-header) 20%);
+
+}
+#my_bg_app.dark_mode .my_app-contacts-header{
+    background-color: var(--dark-gray-header);
+}
+#my_bg_app.dark_mode .my_app-contacts-header .contacts_header-right i{
+    color: var(--dark-gray_black-button_head);
+}
+#my_bg_app.dark_mode .my_app-contacts-header .menu_chat, 
+#my_bg_app.dark_mode .box_message .menu_message_info, 
+#my_bg_app.dark_mode .list_contacts-card .menu_message, 
+#my_bg_app.dark_mode .box_message .menu_message{
+    background-color: black;
+    webkit-box-shadow: -10px 2px 25px 0px var(--dark-gray-header);
+    box-shadow: -10px 2px 25px 0px var(--dark-gray-header);
+}
+
+#my_bg_app.dark_mode .my_app-contacts-footer .contacts_footer-search{
+    background-color: var(--dark-gray-header);
+}
+#my_bg_app.dark_mode .my_app-contacts-footer .contacts_footer-search .contacts_footer-search_input{
+    background-color: var(--dark-gray-bg_contacts);
+}
+#my_bg_app.dark_mode .my_app-contacts-footer .contacts_footer-search .contacts_footer-search_input i{
+    color: white;
+}
+#my_bg_app.dark_mode .my_app-contacts-footer .contacts_footer-search .input_search{
+    border-left: 2px solid var(--dark-gray-header);
+}
+
+#my_bg_app.dark_mode .contacts_footer-list .list_contacts-card{
+    border-bottom: 1px solid var(--dark-gray-header);
+}
+#my_bg_app.dark_mode .contacts_footer-list .list_contact-active i.fa-angle-down, 
+#my_bg_app.dark_mode .contacts_footer-list .list_contact-active{
+    background-color: var(--dark-gray-header);
+}
+#my_bg_app.dark_mode .contacts_footer-list .list_contacts-card .card_center,
+#my_bg_app.dark_mode .contacts_footer-list .list_contacts-card .card_right{
+    filter: invert(1);
+}
+
+#my_bg_app.dark_mode .my_app-contacts .my_app-contacts-footer{
+    background-color: var(--dark-gray-bg_contacts);
+}
+
+#my_bg_app.dark_mode #my_app .my_app-chats .my_app-chats-header{
+    background-color: var(--dark-gray-header);
+}
+#my_bg_app.dark_mode #my_app .my_app-chats  .my_app-chats-header .chats_header-left .profile_sent_name{
+    filter: invert(1);
+}
+#my_bg_app.dark_mode #my_app .my_app-chats .my_app-chats-header .chats_header-right i{
+    color: var(--dark-gray_black-button_head);
+}
+
+#my_bg_app.dark_mode #my_app .my_app-chats .my_app-chats-body{
+    background-color: black;
+    background-image: url(../img/mine_dark.jpg);
+}
+#my_bg_app.dark_mode #my_app .my_app-chats .my_app-chats-body .menu_add-chat{
+    background-color: black;
+    -webkit-box-shadow: -10px 2px 25px 0px var(--dark-gray-header);
+    box-shadow: -10px 2px 25px 0px var(--dark-gray-header);
+}
+#my_bg_app.dark_mode #my_app .my_app-chats .my_app-chats-body .menu_add-chat .box_menu label{
+    color: white;
+}
+#my_bg_app.dark_mode #my_app .my_app-chats .my_app-chats-body .menu_add-chat .profile_image h3,
+#my_bg_app.dark_mode #my_app .my_app-chats .my_app-chats-body .menu_add-chat .profile_image button{
+    filter: invert(1);
+}
+
+#my_bg_app.dark_mode #my_app .my_app-chats .my_app-chats-body .chats_body-row.sent .box_message{
+    background-color: var(--dark-message_sent);
+}
+#my_bg_app.dark_mode #my_app .my_app-chats .my_app-chats-body .chats_body-row.received .box_message{
+    background-color: var(--dark-message_received);
+}
+#my_bg_app.dark_mode #my_app .my_app-chats .my_app-chats-body .chats_body-row.sent .box_message i.fa-angle-down{
+    background-color: var(--dark-message_sent);
+    -webkit-box-shadow: -10px 2px 25px 10px var(--dark-message_sent);
+    box-shadow: -10px 2px 25px 10px var(--dark-message_sent);
+}
+#my_bg_app.dark_mode #my_app .my_app-chats .my_app-chats-body .chats_body-row.received .box_message i.fa-angle-down{
+    background-color: var(--dark-message_received);
+    -webkit-box-shadow: -10px 2px 25px 10px var(--dark-message_received);
+    box-shadow: -10px 2px 25px 10px var(--dark-message_received);
+}
+#my_bg_app.dark_mode #my_app .my_app-chats .my_app-chats-body .chats_body-row .box_message i,
+#my_bg_app.dark_mode #my_app .my_app-chats .my_app-chats-body .chats_body-row .box_message .box_message-text{
+    color: white;
+}
+#my_bg_app.dark_mode #my_app .my_app-chats .my_app-chats-body .chats_body-row .box_message .box_message-time{
+    color: whitesmoke;
+}
+
+#my_bg_app.dark_mode .my_app-chats .my_app-chats-footer{
+    filter: invert(1);
+}
+#my_bg_app.dark_mode .my_app-contacts-header .menu_chat > div,
+#my_bg_app.dark_mode .box_message .menu_message_info > div,
+#my_bg_app.dark_mode .list_contacts-card .menu_message > div,
+#my_bg_app.dark_mode .box_message .menu_message > div{
+    color: white;
+}
+#my_bg_app.dark_mode .contacts_footer-list .list_contact-active i.fa-angle-down{
+    color: white;
+}
+#my_bg_app.dark_mode .my_app-chats-header .input_search_message{
+    webkit-box-shadow: -10px 1px 30px 5px var(--dark-message_sent);
+    box-shadow: -10px 1px 30px 5px var(--dark-message_sent);
+}
+#my_bg_app.dark_mode .my_app-chats-header .input_search_message input{
+    background-color: black;
+    color: white;
+}
+#my_bg_app.dark_mode .my_app-chats-header .input_search_message input:focus-visible{
+    outline: 2px solid var(--dark-message_sent) !important;
+}
+#my_bg_app.dark_mode .contacts_footer-search_input input{
+    background-color: black;
+    color: white;
+}
+#my_bg_app.dark_mode .contacts_footer-search_input input:focus-visible{
+    outline: 2px solid var(--dark-gray-header) !important;
 }

@@ -23,6 +23,19 @@ body{
     --color-text_name: black;
     --color-text_message: lightgray;
 
+    /* DARK MODE  */
+    --dark-gray-bg: #23242E;
+    --dark-gray-header: #151515;
+    --dark-gray-bg_input: #0B1116;
+    --dark-gray-bg_contacts: #000000;
+    --dark-gray_black-button_head: #4E4E4E;
+    --dark-gray_black-button_foot: #968C89;
+    /* --dark-blue-notif: #75DCFF; */
+    --dark-message_sent: #34044C;
+    --dark-message_received: #1A222A;
+    /* --dark-text_name: white; */
+    /* --dark-text_message: lightgray; */
+    
     /* UTILITIES SIZING  */
     --height-app-header: 80px;
     --height-app-popup: 100px;

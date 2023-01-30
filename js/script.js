@@ -3,6 +3,8 @@ const {createApp} = Vue
 createApp({
     data(){
         return{
+            darkMode: false,
+            darkv2: false,
             activePopUp: true,
             contactActive: 0,
             currentMessage: 0,
@@ -325,10 +327,10 @@ createApp({
             const dt = luxon.DateTime;
             
             let txtTime;
-            console.log(txtTime)
+            //console.log(txtTime)
             for (let i = this.contacts[index].messages.length - 1; i >= 0; i--) {
                 const element = this.contacts[index].messages[i];
-                console.log('element',element)
+                //console.log('element',element)
                 if(element.status == 'received'){
                     const txtDay = dt.fromFormat(this.contacts[index].messages[i].date,'dd/LL/yyyy HH:mm:ss').setLocale('it').toFormat('cccc');
                     const txtD = dt.fromFormat(this.contacts[index].messages[i].date,'dd/LL/yyyy HH:mm:ss').setLocale('it').toFormat('d');
@@ -363,7 +365,7 @@ createApp({
                         txtTime = 'il '+(txtYearMonDay)
 
                     }
-                    console.log(txtMonOnlinDay,txtMonOnlinYear)
+                    //console.log(txtMonOnlinDay,txtMonOnlinYear)
                     //txtTime = this.newDateMessageSimple(excTime)
                     return txtTime
                 }
@@ -528,6 +530,6 @@ createApp({
     },
     mounted() {
         this.menuMesssage()
-    },
 
+    }
 }).mount('#app');
