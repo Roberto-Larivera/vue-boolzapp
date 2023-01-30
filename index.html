@@ -83,7 +83,7 @@
                        <!-- FOOTER LIST-CONTACTS-->
                        <ul class="contacts_footer-list">
                         <template v-for="(item, index) in contacts">
-                            <li class="list_contacts-card"  v-if="item.visible" :class="(contactActive == index) ? 'list_contact-active' : '' " @click="contactActive = index , emptyList = false" @click.prevent.right="menuMesssageOpenList(item, index)">
+                            <li class="list_contacts-card"  v-if="item.visible" :class="(contactActive == index) ? 'list_contact-active' : '' " @click="contactActive = index , emptyList = false" >
                                <div class="card_left">
                                     <div class="card_image">
                                         <img :src="'img/avatar'+item.avatar+'.jpg'" :alt="item.name">
@@ -129,7 +129,7 @@
                                     {{contacts[contactActive].name}}
                                 </h3>
                                 <span v-if="emptyList == false">
-                                    Ultimo accesso oggi alle {{lastMessageTimeReceived(contactActive)}}
+                                    Ultimo accesso {{lastMessageTimeReceivedDay(contactActive)}} alle {{lastMessageTimeReceived(contactActive)}}
                                 </span>
                             </div>
                         </div>

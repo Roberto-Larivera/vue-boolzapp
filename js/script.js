@@ -301,6 +301,28 @@ createApp({
             }
             return '00:00'
         },
+        lastMessageTimeReceivedDay(index){
+            const dt = luxon.DateTime;
+            let txtDay;
+            let txtMon;
+            let txtTime;
+            console.log(txtTime)
+            for (let i = this.contacts[index].messages.length - 1; i >= 0; i--) {
+                const element = this.contacts[index].messages[i];
+                console.log('element',element)
+                if(element.status == 'received'){
+                    txtDay = dt.fromFormat(this.contacts[index].messages[i].date,'dd/LL/yyyy HH:mm:ss').setLocale('it').toFormat('cccc');
+                    txtMon = dt.fromFormat(this.contacts[index].messages[i].date,'dd/LL/yyyy HH:mm:ss').setLocale('it').toFormat('MMMM');
+                    txtTime = (txtMon.charAt(0).toUpperCase() + txtMon.slice(1).toLowerCase()) + ' '+(txtDay.charAt(0).toUpperCase() + txtDay.slice(1).toLowerCase())
+                    console.log(txtTime)
+                    //txtTime = this.newDateMessageSimple(excTime)
+                    return txtTime
+                }
+                
+            }
+            const newDay = dt.fromISO(dt.now()).toFormat('cccc');
+            return newDay
+        },
         lastMessageTime(index){
             let txtTime;
             for (let i = this.contacts[index].messages.length - 1; i >= 0; i--) {

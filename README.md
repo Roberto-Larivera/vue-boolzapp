@@ -9,6 +9,8 @@
 - Aggiunta menu-message-info per ogni messaggio;
 - Eliminazione della chat corrente nella lista aggiunta nel menu_chat (control-user);
 - Eliminazione di tutte le chat esistenti dentro menu_chat (control-user);
+- Aggiunta ricerca del messaggio dentro la body-chat tramite icona;
+- 
 
 Milestone 1
 ● Replica della grafica con la possibilità di avere messaggi scritti dall’utente (verdi) e dall’interlocutore (bianco) assegnando due classi CSS diverse
