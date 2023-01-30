@@ -53,7 +53,7 @@ createApp({
                             status: 'received'
                         },
                         { 
-                            date: '10/01/2020 18:15:22', 
+                            date: '29/01/2023 18:15:22', 
                             message: 'Prova ad usare ".received:" e vedi cosa succede!', 
                             status: 'received'
                         }
@@ -77,6 +77,11 @@ createApp({
                             date: '20/03/2020 16:35:00', 
                             message: 'Mi piacerebbe ma devo andare a fare la spesa.', 
                             status: 'sent'
+                        },
+                        { 
+                            date: '29/01/2023 16:35:00', 
+                            message: 'Stasera ci vediamo?', 
+                            status: 'received'
                         }
                 ],
                 },
@@ -99,7 +104,22 @@ createApp({
                             date: '28/03/2020 16:15:22', 
                             message: 'Ah scusa!', 
                             status: 'received'
-                        }
+                        },
+                        { 
+                            date: '30/01/2023 10:10:40', 
+                            message: 'La Marianna va di nuovo in campagna', 
+                            status: 'received'
+                        },
+                        { 
+                            date: '30/01/2023 10:20:10', 
+                            message: 'Sicuro di non aver sbagliato di nuovo chat?', 
+                            status: 'sent'
+                        },
+                        { 
+                            date: '30/01/2023 10:30:40', 
+                            message: 'Ops', 
+                            status: 'received'
+                        },
                 ],
                 },
                 { 
@@ -303,18 +323,47 @@ createApp({
         },
         lastMessageTimeReceivedDay(index){
             const dt = luxon.DateTime;
-            let txtDay;
-            let txtMon;
+            
             let txtTime;
             console.log(txtTime)
             for (let i = this.contacts[index].messages.length - 1; i >= 0; i--) {
                 const element = this.contacts[index].messages[i];
                 console.log('element',element)
                 if(element.status == 'received'){
-                    txtDay = dt.fromFormat(this.contacts[index].messages[i].date,'dd/LL/yyyy HH:mm:ss').setLocale('it').toFormat('cccc');
-                    txtMon = dt.fromFormat(this.contacts[index].messages[i].date,'dd/LL/yyyy HH:mm:ss').setLocale('it').toFormat('MMMM');
-                    txtTime = (txtMon.charAt(0).toUpperCase() + txtMon.slice(1).toLowerCase()) + ' '+(txtDay.charAt(0).toUpperCase() + txtDay.slice(1).toLowerCase())
-                    console.log(txtTime)
+                    const txtDay = dt.fromFormat(this.contacts[index].messages[i].date,'dd/LL/yyyy HH:mm:ss').setLocale('it').toFormat('cccc');
+                    const txtD = dt.fromFormat(this.contacts[index].messages[i].date,'dd/LL/yyyy HH:mm:ss').setLocale('it').toFormat('d');
+                    const txtMon = dt.fromFormat(this.contacts[index].messages[i].date,'dd/LL/yyyy HH:mm:ss').setLocale('it').toFormat('MMMM');
+                    const txtYear = dt.fromFormat(this.contacts[index].messages[i].date,'dd/LL/yyyy HH:mm:ss').setLocale('it').toFormat('yyyy');
+                    const txtSet = dt.fromFormat(this.contacts[index].messages[i].date,'dd/LL/yyyy HH:mm:ss').setLocale('it').toFormat('WW');
+                    const txtYearMonDay = dt.fromFormat(this.contacts[index].messages[i].date,'dd/LL/yyyy HH:mm:ss').setLocale('it').toFormat('dd/MM/yy');
+                    const txtMonOnlin = dt.fromISO(dt.now()).setLocale('it').toFormat('MMMM');
+                    const txtMonOnlinDay = dt.fromISO(dt.now()).setLocale('it').toFormat('cccc');
+                    const txtMonOnlinD = dt.fromISO(dt.now()).setLocale('it').toFormat('d');
+                    const txtMonOnlinSet = dt.fromISO(dt.now()).setLocale('it').toFormat('WW');
+                    const txtMonOnlinYear = dt.fromISO(dt.now()).setLocale('it').toFormat('yyyy');
+                    if(txtYear == txtMonOnlinYear){
+                        if(txtMonOnlin == txtMon){
+                            if(txtSet == txtMonOnlinSet){
+                                if(txtDay == txtMonOnlinDay){
+                                    txtTime = 'Oggi'
+                                }else if(txtD == (txtMonOnlinD - 1) ){
+                                    txtTime = 'Ieri'
+                                }else{                                 
+                                    txtTime = (txtDay.charAt(0).toUpperCase() + txtDay.slice(1).toLowerCase())
+                                }
+                            }else{
+                                txtTime = (txtDay.charAt(0).toUpperCase() + txtDay.slice(1).toLowerCase()) + ' - ' + txtD;
+                            }
+                        }
+                        else{
+                            txtTime = 'il '+(txtD) + ' '+(txtMon.charAt(0).toUpperCase() + txtMon.slice(1).toLowerCase())
+                            
+                        }
+                    }else{
+                        txtTime = 'il '+(txtYearMonDay)
+
+                    }
+                    console.log(txtMonOnlinDay,txtMonOnlinYear)
                     //txtTime = this.newDateMessageSimple(excTime)
                     return txtTime
                 }
@@ -418,12 +467,12 @@ createApp({
             }
             else if(this.contactActive == this.contacts.length -1){
                 this.emptyList = true;
-                console.log('dentro',this.contactActive)
+                //console.log('dentro',this.contactActive)
             }
             this.contacts.splice(index,1);
             this.currentContact = 0;
             this.contactActive = 0;
-            console.log('fuori',this.contactActive)
+            //console.log('fuori',this.contactActive)
 
            
             
@@ -435,7 +484,7 @@ createApp({
         newChatAddList(){
             // this.contacts.push({             // utilizzo .unshift per pushare all'inizio dell'array
             if(this.newContactChat.name != "" || this.newContactChat.name != null || this.newContactChat.name != undefined){
-                console.log('entro qui,', this.newContactChat.name)
+                //console.log('entro qui,', this.newContactChat.name)
                 this.contacts.unshift({
                     name: this.newContactChat.name,
                     avatar: this.newContactChat.avatar,
