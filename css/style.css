@@ -717,3 +717,6 @@
 #my_bg_app.dark_mode .contacts_footer-search_input input:focus-visible{
     outline: 2px solid var(--dark-gray-header) !important;
 }
+#my_bg_app.dark_mode .my_app-contacts-header .contacts_header-left h3 {
+    color: var(--dark-text_name);
+}

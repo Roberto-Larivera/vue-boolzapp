@@ -33,8 +33,8 @@ body{
     /* --dark-blue-notif: #75DCFF; */
     --dark-message_sent: #34044C;
     --dark-message_received: #1A222A;
-    /* --dark-text_name: white; */
-    /* --dark-text_message: lightgray; */
+    --dark-text_name: white;
+    --dark-text_message: lightgray;
     
     /* UTILITIES SIZING  */
     --height-app-header: 80px;
