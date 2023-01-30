@@ -357,10 +357,6 @@ createApp({
             }
         },
         menuMesssageOpen(item, x){
-            // console.log('this.currentMessage',this.currentMessage)
-            // console.log('x', x)
-            // console.log('item', item)
-            // console.log('this.currentMessage',this.currentMessage)
             if(this.contacts[this.contactActive].messages[this.currentMessage].statusMenu == true && this.contacts[this.contactActive].messages[this.currentMessage] != item){
                 this.contacts[this.contactActive].messages[this.currentMessage].statusMenu = false;
                 item.statusMenu = !item.statusMenu
@@ -379,10 +375,6 @@ createApp({
             this.currentMessage = 0;
         },
         menuMesssageOpenList(item, x){
-            // console.log('this.currentContact',this.currentContact)
-            // console.log('x', x)
-            // console.log('item', item)
-            // console.log('this.currentContact',this.currentContact)
             if(this.contacts[this.currentContact].statusMenuList == true && this.contacts[this.currentContact] != item){
                 this.contacts[this.currentContact].statusMenuList = false;
                 item.statusMenuList = !item.statusMenuList
@@ -396,16 +388,21 @@ createApp({
             this.currentContact = x ;
             
         },
-        deleteChatList(x,index){
+        deleteChatList(index){
             this.menuChat = false
             if(this.contacts.length == 1){
                 //console.log('ciaoBello')
                 this.emptyList = true;
             }
-
-            this.emptyList = true;
+            else if(this.contactActive == this.contacts.length -1){
+                this.emptyList = true;
+                console.log('dentro',this.contactActive)
+            }
             this.contacts.splice(index,1);
             this.currentContact = 0;
+            this.contactActive = 0;
+            console.log('fuori',this.contactActive)
+
            
             
         },

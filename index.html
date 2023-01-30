@@ -42,7 +42,7 @@
                         <div class="menu_chat" v-if="menuChat == true" >
                             <div class="my_button_add" @click="menuChatUser = !menuChatUser , this.menuChat = false" >Crea un nuovo utente</div>
                             <div class="my_button_add" @click="" >Inizia una nuova chat</div>
-                            <div class="my_button_delete"  @click="deleteChatList(contactActive,index)" >Elimina la chat corrente</div>
+                            <div class="my_button_delete"  @click="deleteChatList(contactActive)" >Elimina la chat corrente</div>
                             <div class="my_button_delete" @click="deleteAllChats()" >Elimina tutte le chat</div>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
                        <!-- FOOTER LIST-CONTACTS-->
                        <ul class="contacts_footer-list">
                         <template v-for="(item, index) in contacts">
-                            <li class="list_contacts-card"  v-if="item.visible" :class="(contactActive == index) ? 'list_contact-active' : '' " @click="contactActive = index , emptyList = false">
+                            <li class="list_contacts-card"  v-if="item.visible" :class="(contactActive == index) ? 'list_contact-active' : '' " @click="contactActive = index , emptyList = false" @click.prevent.right="menuMesssageOpenList(item, index)">
                                <div class="card_left">
                                     <div class="card_image">
                                         <img :src="'img/avatar'+item.avatar+'.jpg'" :alt="item.name">
@@ -102,9 +102,9 @@
                                         {{lastMessageTime(index)}}
                                     </span>
                                 </div>
-                                <i class="fa-solid fa-angle-down" @click="menuMesssageOpenList(item, index)"></i>
+                                <i class="fa-solid fa-angle-down" @click.prevent.right="menuMesssageOpenList(item, index)" @click="menuMesssageOpenList(item, index)"></i>
                                 <div class="menu_message" v-if="item.statusMenuList == true">
-                                    <div @click="deleteChatList(contactActive,index)" >Elimina chat</div>
+                                    <div @click.stop="deleteChatList(contactActive)" >Elimina chat</div>
                                 </div>
                             </li>
                         </template>
@@ -116,16 +116,19 @@
                 <div class="my_app-chats" >
 
                     <!-- CHATS HEADER-->
+                    
                     <div class="my_app-chats-header">
-                         <div class="chats_header-left"  >   <!--v-for="(item,index) in contacts" -->
+                         <div class="chats_header-left"  >   
+                            
                             <div class="profile_sent_image">
-                                <img :src="'img/avatar'+contacts[contactActive].avatar+'.jpg'" :alt="contacts[contactActive].name" v-if="emptyList==false">
+                                <img v-if="emptyList == false" :src="'img/avatar'+contacts[contactActive].avatar+'.jpg'" :alt="contacts[contactActive].name" >
                             </div>
+                            
                             <div class="profile_sent_name">
-                                <h3 v-if="emptyList==false">
+                                <h3 v-if="emptyList == false">
                                     {{contacts[contactActive].name}}
                                 </h3>
-                                <span v-if="emptyList==false">
+                                <span v-if="emptyList == false">
                                     Ultimo accesso oggi alle {{lastMessageTimeReceived(contactActive)}}
                                 </span>
                             </div>
@@ -136,11 +139,11 @@
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
                     </div> 
-
+                    
                     <!-- CHATS BODY-->
                     <div class="my_app-chats-body">
                         
-                        <div class="input_search_message" v-if="searchMessageBox == true">
+                        <div class="input_search_message" v-if="searchMessageBox == true" >
                             <input type="search" placeholder="Cerca un messaggio" v-model="searchMessage" @keyup="searchFilterMessage ()">
                         </div>
                         
@@ -168,6 +171,7 @@
                                 </div>
                             </div>
                         </template>
+                        
                         <!-- MENU CHAT USER -->
                         <div class="menu_add-chat" v-if="menuChatUser == true">
                             <div class="box_menu">
