@@ -603,7 +603,7 @@
 #my_bg_app.dark_mode .list_contacts-card .menu_message, 
 #my_bg_app.dark_mode .box_message .menu_message{
     background-color: black;
-    webkit-box-shadow: -10px 2px 25px 0px var(--dark-gray-header);
+    -webkit-box-shadow: -10px 2px 25px 0px var(--dark-gray-header);
     box-shadow: -10px 2px 25px 0px var(--dark-gray-header);
 }
 
@@ -700,7 +700,7 @@
     color: white;
 }
 #my_bg_app.dark_mode .my_app-chats-header .input_search_message{
-    webkit-box-shadow: -10px 1px 30px 5px var(--dark-message_sent);
+    -webkit-box-shadow: -10px 1px 30px 5px var(--dark-message_sent);
     box-shadow: -10px 1px 30px 5px var(--dark-message_sent);
 }
 #my_bg_app.dark_mode .my_app-chats-header .input_search_message input{
