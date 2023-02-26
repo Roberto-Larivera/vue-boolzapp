@@ -200,7 +200,7 @@
                                     <h3>
                                         {{newContactChat.name}}
                                     </h3>
-                                    <button @click="newChatAddList()" ><i class="fa-solid fa-user-check"></i></button v-if="newContactChat.avatar != null && newContactChat.name != undefined">
+                                    <button @click="newChatAddList()" v-if="newContactChat.avatar != null && newContactChat.name != undefined" ><i class="fa-solid fa-user-check"></i></button >
                             </div>
                             <h3>
                             </h3>
